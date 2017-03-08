@@ -4,7 +4,8 @@ import {
   TouchableOpacity,
   Image,
   Text,
-  View
+  View,
+  Button
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -31,7 +32,8 @@ class CounterView extends Component {
       reset: PropTypes.func.isRequired,
       random: PropTypes.func.isRequired
     }).isRequired,
-    navigate: PropTypes.func.isRequired
+    navigate: PropTypes.func.isRequired,
+    hello: PropTypes.func.isRequired
   };
 
   increment = () => {
@@ -109,6 +111,7 @@ class CounterView extends Component {
             Random
           </Text>
         </TouchableOpacity>
+        <Button title='Hello me!' onPress={this.props.hello} />
 
         <TouchableOpacity onPress={this.bored} accessible={true}>
           <Text style={styles.linkButton}>

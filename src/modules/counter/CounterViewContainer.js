@@ -12,7 +12,8 @@ export default connect(
   dispatch => {
     return {
       navigate: bindActionCreators(NavigationActions.navigate, dispatch),
-      counterStateActions: bindActionCreators(CounterStateActions, dispatch)
+      counterStateActions: bindActionCreators(CounterStateActions, dispatch),
+      hello: () => console.log('Hello world!')
     };
   }
 )(CounterView);
