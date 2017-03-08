@@ -33,8 +33,16 @@ class CounterView extends Component {
       random: PropTypes.func.isRequired
     }).isRequired,
     navigate: PropTypes.func.isRequired,
-    hello: PropTypes.func.isRequired
+    hello: PropTypes.func.isRequired,
+    refresh: PropTypes.func.isRequired,
+    songs: PropTypes.array.isRequired
   };
+
+  componentDidMount() {
+    const {refresh} = this.props;
+
+    refresh();
+  }
 
   increment = () => {
     this.props.counterStateActions.increment();
@@ -79,10 +87,16 @@ class CounterView extends Component {
       ? {backgroundColor: '#eee'}
       : null;
 
+    console.log('grepme');
+    console.log(this.props.songs);
     return (
       <View style={styles.container}>
 
         {this.renderUserInfo()}
+
+        <Text>
+          {JSON.stringify(this.props.songs, null, 4)}
+        </Text>
 
         <TouchableOpacity
           accessible={true}

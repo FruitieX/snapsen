@@ -4,6 +4,8 @@ import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import CounterStateReducer from '../modules/counter/CounterState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
+import rest from '../utils/rest';
+
 const reducers = {
   // Counter sample app state. This can be removed in a live application
   counter: CounterStateReducer,
@@ -11,7 +13,9 @@ const reducers = {
   // Navigator states
   navigatorState: NavigatorStateReducer,
 
-  session: SessionStateReducer
+  session: SessionStateReducer,
+
+  ...rest.reducers
 
 };
 
