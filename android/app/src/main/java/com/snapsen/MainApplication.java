@@ -1,4 +1,4 @@
-package com.pepperoniapptemplate;
+package com.snapsen;
 
 import android.app.Application;
 

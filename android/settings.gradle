@@ -1,4 +1,4 @@
-rootProject.name = 'PepperoniAppTemplate'
+rootProject.name = 'Snapsen'
 
 include ':app'
 include ':react-native-vector-icons'
