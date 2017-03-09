@@ -1,7 +1,6 @@
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
-import CounterViewContainer from '../counter/CounterViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
 
 const headerColor = '#39babd';
@@ -9,7 +8,6 @@ const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
-  Counter: {screen: CounterViewContainer},
   Color: {screen: ColorViewContainer}
 }, {
   tabBarOptions: {
@@ -26,6 +24,7 @@ export const MainScreenNavigator = TabNavigator({
 MainScreenNavigator.navigationOptions = {
   title: 'Snapsen',
   header: {
+    //visible: false,
     titleStyle: {color: 'white'},
     style: {
       backgroundColor: headerColor,
