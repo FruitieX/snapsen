@@ -1,6 +1,7 @@
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
+import SongsViewContainer from '../songs/SongsViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
 
 const headerColor = '#39babd';
@@ -8,6 +9,7 @@ const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
+  Songs: {screen: SongsViewContainer},
   Color: {screen: ColorViewContainer}
 }, {
   tabBarOptions: {
