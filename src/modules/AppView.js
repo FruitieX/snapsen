@@ -6,6 +6,10 @@ import * as SessionStateActions from '../modules/session/SessionState';
 import store from '../redux/store';
 import DeveloperMenu from '../components/DeveloperMenu';
 
+import {StyleProvider} from 'native-base';
+import getTheme from '../../native-base-theme/components';
+import themeVariables from '../../native-base-theme/variables/platform';
+
 class AppView extends Component {
   static displayName = 'AppView';
 
@@ -41,11 +45,14 @@ class AppView extends Component {
     }
 
     return (
-      <View style={{flex: 1}}>
-        <StatusBar backgroundColor='#455a64' barStyle='light-content' />
-        <NavigatorViewContainer />
-        {__DEV__ && <DeveloperMenu />}
-      </View>
+      <StyleProvider style={getTheme(themeVariables)}>
+        <View style={{flex: 1}}>
+          <StatusBar backgroundColor='#455a64' barStyle='light-content' />
+          <NavigatorViewContainer />
+
+          {__DEV__ && <DeveloperMenu />}
+        </View>
+      </StyleProvider>
     );
   }
 }
