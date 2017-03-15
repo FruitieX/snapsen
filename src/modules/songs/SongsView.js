@@ -43,9 +43,10 @@ class SongsView extends Component {
 
   render() {
     const {songs} = this.props;
+    const {navigate} = this.props.navigation;
 
     const songList = songs.data.map(song => (
-      <ListItem button onPress={() => console.log(`pressed song '${song.title}'`)} key={song.id}>
+      <ListItem button onPress={() => navigate('SongDetails', {songId: song.id})} key={song.id}>
         <Body>
           <Text>{song.title}</Text>
           <Text note>TF:s Sångbok, Sida {Math.round(Math.random() * 200)}</Text>

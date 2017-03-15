@@ -5,7 +5,7 @@ import rest from '../../utils/rest';
 export default connect(
   (state, ownProps) => ({
     songDetails: state.getIn(['songDetails']).toJS(),
-    songId: 1
+    songId: ownProps.navigation.state.params.songId
   }),
   dispatch => ({
     getSongDetails(songId) {

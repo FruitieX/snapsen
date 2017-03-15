@@ -3,16 +3,16 @@ import {} from 'react-native';
 import {Container, Content, Text, Card, CardItem, Body} from 'native-base';
 
 class SongDetailsView extends Component {
-  componentDidMount() {
-    this.props.getSongDetails(this.props.songId);
-  }
-
   static navigationOptions = {
     title: 'Info'
   }
 
+  componentDidMount() {
+    this.props.getSongDetails(this.props.songId);
+  }
+
   render() {
-    const song = this.props.songDetails.data
+    const song = this.props.songDetails.data;
     return (
       <Container>
         <Content>

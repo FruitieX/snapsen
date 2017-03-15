@@ -10,7 +10,6 @@ import SongDetailsViewContainer from '../songDetails/SongDetailsViewContainer';
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
   Songs: {screen: SongsViewContainer},
-  SongDetails: {screen: SongDetailsViewContainer},
   Color: {screen: ColorViewContainer}
 }, {
   tabBarOptions: {
@@ -33,7 +32,7 @@ MainScreenNavigator.navigationOptions = {
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
   Home: {screen: MainScreenNavigator},
-  InfiniteColorStack: {screen: ColorViewContainer}
+  SongDetails: {screen: SongDetailsViewContainer}
 });
 
 export default AppNavigator;
