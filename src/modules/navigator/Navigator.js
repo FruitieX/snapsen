@@ -4,13 +4,11 @@ import {TabNavigator, StackNavigator} from 'react-navigation';
 import themeVariables from '../../../native-base-theme/variables/platform';
 
 import SongsViewContainer from '../songs/SongsViewContainer';
-import ColorViewContainer from '../colors/ColorViewContainer';
 import SongDetailsViewContainer from '../songDetails/SongDetailsViewContainer';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
-  Songs: {screen: SongsViewContainer},
-  Color: {screen: ColorViewContainer}
+  Songs: {screen: SongsViewContainer}
 }, {
   tabBarOptions: {
     ...Platform.select({

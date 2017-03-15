@@ -2,6 +2,8 @@ import {AsyncStorage} from 'react-native';
 import {fromJS} from 'immutable';
 const STATE_STORAGE_KEY = 'SnapsenAppState:Latest';
 
+import {reducers as restReducers} from './rest';
+
 export async function resetSnapshot() {
   const state = await rehydrate();
   if (state) {
@@ -39,10 +41,27 @@ async function persist(state) {
  */
 async function rehydrate() {
   try {
-    const state = await AsyncStorage.getItem(STATE_STORAGE_KEY);
-    return state
-      ? JSON.parse(state)
-      : null;
+    let state = await AsyncStorage.getItem(STATE_STORAGE_KEY);
+
+    if (state) {
+      state = JSON.parse(state);
+
+      // Set 'loading' property to false for all REST endpoints.
+      // If the 'loading' flag is set even though there is no in flight API request,
+      // redux-api will wait forever and never let us issue any further API requests
+      // to that endpoint
+      Object.keys(restReducers).forEach((endpoint) => {
+        const endpointState = state[endpoint];
+
+        if (endpointState) {
+          endpointState.loading = false;
+        }
+      });
+
+      return state;
+    }
+
+    return null;
   } catch (e) {
     console.error('Error reading persisted application state', e);
     return null;
