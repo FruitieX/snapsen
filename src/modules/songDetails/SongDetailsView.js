@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import {} from 'react-native';
-import {Container, Content, Text, Card, CardItem, Body} from 'native-base';
+import {
+  Container,
+  Content,
+  Text,
+  Card,
+  CardItem,
+  Body
+} from 'native-base';
 
 class SongDetailsView extends Component {
   static navigationOptions = {
