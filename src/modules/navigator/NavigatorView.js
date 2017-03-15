@@ -19,14 +19,7 @@ class NavigatorView extends Component {
 
   render() {
     return (
-      <AppNavigator
-        navigation={
-          addNavigationHelpers({
-            dispatch: this.props.dispatch,
-            state: this.props.navigatorState
-          })
-        }
-      />
+      <AppNavigator/>
     );
   }
 }
