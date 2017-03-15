@@ -6,7 +6,8 @@ import {
   Text,
   Card,
   CardItem,
-  Body
+  Body,
+  Spinner
 } from 'native-base';
 
 class SongDetailsView extends Component {
@@ -20,7 +21,13 @@ class SongDetailsView extends Component {
 
   render() {
     const song = this.props.songDetails.data;
-    return (
+    return (this.props.songDetails.loading ? (
+      <Container>
+        <Content>
+          <Spinner color='#666'/>
+        </Content>
+      </Container>
+    ) : (
       <Container>
         <Content>
           <Card>
@@ -39,7 +46,7 @@ class SongDetailsView extends Component {
           </Card>
         </Content>
       </Container>
-    );
+    ));
   }
 }
 
