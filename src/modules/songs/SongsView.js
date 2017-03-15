@@ -30,6 +30,7 @@ class SongsView extends Component {
 
   static propTypes = {
     refresh: PropTypes.func.isRequired,
+    throttledRefresh: PropTypes.func.isRequired,
     songs: PropTypes.shape({
       data: PropTypes.array.isRequired,
       loading: PropTypes.bool.isRequired
@@ -54,24 +55,15 @@ class SongsView extends Component {
     </ListItem>
   );
 
-    const songList = songs.data.map(song => (
-      <ListItem button onPress={() => console.log(`pressed song '${song.title}'`)} key={song.id}>
-        <Body>
-          <Text>{song.title}</Text>
-          <Text note>TF:s Sångbok, Sida {Math.round(Math.random() * 200)}</Text>
-        </Body>
-        <Right>
-          <Icon name='arrow-forward' />
-        </Right>
-      </ListItem>
-    ));
+  render() {
+    const {songs, throttledRefresh} = this.props;
 
     return (
       <Container>
         <Header searchBar rounded>
           <Item>
             <Icon name='search' />
-            <Input placeholder='Search' />
+            <Input placeholder='Search' onChangeText={throttledRefresh} />
             <Icon active name='md-musical-note' />
           </Item>
           <Button transparent>
