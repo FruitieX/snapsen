@@ -1,11 +1,10 @@
 import {Platform} from 'react-native';
 import {TabNavigator, StackNavigator} from 'react-navigation';
 
+import themeVariables from '../../../native-base-theme/variables/platform';
+
 import SongsViewContainer from '../songs/SongsViewContainer';
 import ColorViewContainer from '../colors/ColorViewContainer';
-
-const headerColor = '#39babd';
-const activeColor = 'white';
 
 // TabNavigator is nested inside StackNavigator
 export const MainScreenNavigator = TabNavigator({
@@ -15,23 +14,17 @@ export const MainScreenNavigator = TabNavigator({
   tabBarOptions: {
     ...Platform.select({
       android: {
-        activeTintColor: activeColor,
-        indicatorStyle: {backgroundColor: activeColor},
-        style: {backgroundColor: headerColor}
+        activeTintColor: themeVariables.topTabBarActiveTextColor,
+        indicatorStyle: {backgroundColor: themeVariables.topTabBarActiveTextColor},
+        style: {backgroundColor: themeVariables.tabDefaultBg}
       }
     })
   }
 });
 
 MainScreenNavigator.navigationOptions = {
-  title: 'Snapsen',
   header: {
-    //visible: false,
-    titleStyle: {color: 'white'},
-    style: {
-      backgroundColor: headerColor,
-      elevation: 0 // disable header elevation when TabNavigator visible
-    }
+    visible: false
   }
 };
 
