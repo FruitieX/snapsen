@@ -11,6 +11,7 @@ import {
   Body,
   Right,
   ListItem,
+  List,
   Text,
   Spinner
 } from 'native-base';
@@ -41,8 +42,17 @@ class SongsView extends Component {
     refresh();
   }
 
-  render() {
-    const {songs} = this.props;
+  renderRow = song => (
+    <ListItem button onPress={() => console.log(`pressed song '${song.title}'`)} key={song.id}>
+      <Body>
+        <Text>{song.title}</Text>
+        <Text note>TF:s Sångbok, Sida {Math.round(Math.random() * 200)}</Text>
+      </Body>
+      <Right>
+        <Icon name='arrow-forward' />
+      </Right>
+    </ListItem>
+  );
 
     const songList = songs.data.map(song => (
       <ListItem button onPress={() => console.log(`pressed song '${song.title}'`)} key={song.id}>
@@ -70,7 +80,9 @@ class SongsView extends Component {
         </Header>
         <Content>
           {
-            songs.loading ? <Spinner /> : songList
+            songs.loading
+            ? <Spinner />
+            : <List dataArray={songs.data} renderRow={this.renderRow} />
           }
         </Content>
       </Container>
