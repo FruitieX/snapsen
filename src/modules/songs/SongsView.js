@@ -9,6 +9,8 @@ import {
   Item,
   Input,
   Body,
+  Thumbnail,
+  Left,
   Right,
   ListItem,
   List,
@@ -43,10 +45,13 @@ class SongsView extends Component {
   }
 
   renderRow = song => (
-    <ListItem button onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})} key={song.id}>
+    <ListItem button avatar onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})} key={song.id}>
+      <Left>
+        <Thumbnail tintColor='black' source={{uri: song.imageUrl}}/>
+      </Left>
       <Body>
         <Text>{song.title}</Text>
-        <Text note>TF:s Sångbok, Sida {Math.round(Math.random() * 200)}</Text>
+        <Text note>{song.bookName}, sida {song.page}</Text>
       </Body>
       <Right>
         <Icon name='arrow-forward' />

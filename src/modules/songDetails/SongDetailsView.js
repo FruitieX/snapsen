@@ -7,6 +7,8 @@ import {
   Card,
   CardItem,
   Body,
+  Left,
+  Thumbnail,
   Spinner
 } from 'native-base';
 
@@ -21,6 +23,7 @@ class SongDetailsView extends Component {
 
   render() {
     const song = this.props.songDetails.data;
+    console.log(song);
     return (this.props.songDetails.loading ? (
       <Container>
         <Content>
@@ -32,10 +35,13 @@ class SongDetailsView extends Component {
         <Content>
           <Card>
             <CardItem bordered>
-              <Body>
-                <Text>{song.title}</Text>
-                <Text note>Från TF:s sångbok, sida: {song.page}</Text>
-              </Body>
+              <Left>
+                <Thumbnail tintColor='black' source={{uri: song.imageUrl}}/>
+                <Body>
+                  <Text>{song.title}</Text>
+                  <Text note>Från {song.bookName}, sida: {song.page}</Text>
+                </Body>
+              </Left>
             </CardItem>
 
             <CardItem>
