@@ -1,19 +1,33 @@
 import React, {Component} from 'react';
 import {} from 'react-native';
-import {Container, Content, Text, Card, CardItem, Body} from 'native-base';
+import {
+  Container,
+  Content,
+  Text,
+  Card,
+  CardItem,
+  Body,
+  Spinner
+} from 'native-base';
 
 class SongDetailsView extends Component {
-  componentDidMount() {
-    this.props.getSongDetails(this.props.songId);
-  }
-
   static navigationOptions = {
     title: 'Info'
   }
 
+  componentDidMount() {
+    this.props.getSongDetails(this.props.songId);
+  }
+
   render() {
-    const song = this.props.songDetails.data
-    return (
+    const song = this.props.songDetails.data;
+    return (this.props.songDetails.loading ? (
+      <Container>
+        <Content>
+          <Spinner color='#666'/>
+        </Content>
+      </Container>
+    ) : (
       <Container>
         <Content>
           <Card>
@@ -32,7 +46,7 @@ class SongDetailsView extends Component {
           </Card>
         </Content>
       </Container>
-    );
+    ));
   }
 }
 

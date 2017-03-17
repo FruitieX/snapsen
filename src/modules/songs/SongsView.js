@@ -39,12 +39,11 @@ class SongsView extends Component {
 
   componentDidMount() {
     const {refresh} = this.props;
-
     refresh();
   }
 
   renderRow = song => (
-    <ListItem button onPress={() => console.log(`pressed song '${song.title}'`)} key={song.id}>
+    <ListItem button onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})} key={song.id}>
       <Body>
         <Text>{song.title}</Text>
         <Text note>TF:s Sångbok, Sida {Math.round(Math.random() * 200)}</Text>
