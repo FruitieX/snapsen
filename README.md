@@ -40,7 +40,7 @@ Not all of the below is yet fully implemented
 
 * Always up-to-date [React Native](https://facebook.github.io/react-native/) scaffolding
 * Modular and well-documented structure for application code
-* [Redux](http://redux.js.org/) and [ImmutableJS](https://facebook.github.io/immutable-js/) for safe and **Reasonaboutable**:tm: state management
+* [Redux](http://redux.js.org/) for **Reasonaboutable**:tm: state management
 * [Redux Loop](https://github.com/raisemarketplace/redux-loop) for Elm-style controlled side effects
 * [React Navigation](https://reactnavigation.org/) for awesome navigation with 60fps transitions
 * Disk-persisted application state caching for offline support and snappy startup performance
