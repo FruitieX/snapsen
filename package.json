@@ -40,7 +40,6 @@
   "dependencies": {
     "bluebird": "^3.3.5",
     "event-emitter": "^0.3.4",
-    "immutable": "^3.7.6",
     "lodash": "^4.11.0",
     "moment": "^2.12.0",
     "native-base": "^2.0.12",
@@ -51,7 +50,7 @@
     "react-navigation": "^1.0.0-beta.6",
     "react-redux": "^4.4.5",
     "redux": "^3.4.0",
-    "redux-api-immutablejs": "^0.9.19",
+    "redux-api": "^0.9.18",
     "redux-logger": "^2.6.1",
     "redux-loop-symbol-ponyfill": "^2.2.0",
     "redux-promise": "^0.5.3",

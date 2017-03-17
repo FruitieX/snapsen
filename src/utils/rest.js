@@ -1,6 +1,6 @@
 //import 'isomorphic-fetch';
-import reduxApi, {transformers} from 'redux-api-immutablejs';
-import adapterFetch from 'redux-api-immutablejs/lib/adapters/fetch';
+import reduxApi, {transformers} from 'redux-api';
+import adapterFetch from 'redux-api/lib/adapters/fetch';
 //import config from 'config';
 
 const config = {
