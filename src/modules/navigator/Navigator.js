@@ -7,6 +7,7 @@ import SongsViewContainer from '../songs/SongsViewContainer';
 import SongDetailsViewContainer from '../songDetails/SongDetailsViewContainer';
 
 // TabNavigator is nested inside StackNavigator
+/*
 export const MainScreenNavigator = TabNavigator({
   Songs: {screen: SongsViewContainer}
 }, {
@@ -26,11 +27,15 @@ MainScreenNavigator.navigationOptions = {
     visible: false
   }
 };
+*/
 
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
-  Home: {screen: MainScreenNavigator},
+  //Home: {screen: MainScreenNavigator},
+  Home: {screen: SongsViewContainer},
   SongDetails: {screen: SongDetailsViewContainer}
+}, {
+  headerMode: 'none'
 });
 
 export default AppNavigator;
