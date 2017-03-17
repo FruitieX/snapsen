@@ -8,7 +8,7 @@ const refresh = (dispatch, filter) => dispatch(rest.actions.songs({filter}));
 
 export default connect(
   state => ({
-    songs: state.getIn(['songs']).toJS()
+    songs: state.songs
   }),
   dispatch => ({
     refresh: (filter) => refresh(dispatch, filter),

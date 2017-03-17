@@ -1,20 +1,15 @@
 import {AsyncStorage} from 'react-native';
-import {fromJS} from 'immutable';
 const STATE_STORAGE_KEY = 'SnapsenAppState:Latest';
 
 import {reducers as restReducers} from './rest';
 
 export async function resetSnapshot() {
   const state = await rehydrate();
-  if (state) {
-    return fromJS(state);
-  }
-
-  return null;
+  return state || null;
 }
 
 export async function saveSnapshot(state) {
-  await persist(state.toJS());
+  await persist(state);
 }
 
 export async function clearSnapshot() {
