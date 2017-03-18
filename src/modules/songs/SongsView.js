@@ -47,8 +47,8 @@ class SongsView extends Component {
         <Thumbnail source={{uri: song.imageUrl}}/>
       </Left>
       <Body>
-        <Text>{song.title}</Text>
-        <Text note>{song.bookName}, sida {song.page}</Text>
+        <Text numberOfLines={1}>{song.title}</Text>
+        <Text note numberOfLines={1}>{song.bookName}, sida {song.page}</Text>
       </Body>
       <Right>
         <Icon name='arrow-forward' />
