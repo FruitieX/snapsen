@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 
 import {
   Container,
@@ -18,6 +18,9 @@ import {
   Spinner
 } from 'native-base';
 
+// Don't care about propTypes in modules
+/* eslint-disable react/prop-types */
+
 class SongsView extends Component {
   static displayName = 'SongsView';
 
@@ -27,22 +30,19 @@ class SongsView extends Component {
     }
   }
 
-  static propTypes = {
-    refresh: PropTypes.func.isRequired,
-    throttledRefresh: PropTypes.func.isRequired,
-    songs: PropTypes.shape({
-      data: PropTypes.array.isRequired,
-      loading: PropTypes.bool.isRequired
-    })
-  };
-
   componentDidMount() {
     const {refresh} = this.props;
+
     refresh();
   }
 
   renderRow = song => (
-    <ListItem button avatar onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})} key={song.id}>
+    <ListItem
+      button
+      avatar
+      key={song.id}
+      onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})}
+    >
       <Left>
         <Thumbnail tintColor='black' source={{uri: song.imageUrl}}/>
       </Left>
@@ -57,7 +57,7 @@ class SongsView extends Component {
   );
 
   render() {
-    const {songs, throttledRefresh} = this.props;
+    const {songs, loading, throttledRefresh} = this.props;
 
     return (
       <Container>
@@ -73,9 +73,9 @@ class SongsView extends Component {
         </Header>
         <Content>
           {
-            songs.loading
-            ? <Spinner />
-            : <List dataArray={songs.data} renderRow={this.renderRow} />
+            loading
+            ? <Spinner color='#666'/>
+            : <List dataArray={songs} renderRow={this.renderRow} />
           }
         </Content>
       </Container>

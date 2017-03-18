@@ -1,5 +1,5 @@
-import {Platform} from 'react-native';
-import {TabNavigator, StackNavigator} from 'react-navigation';
+//import {Platform} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 
 import themeVariables from '../../../native-base-theme/variables/platform';
 

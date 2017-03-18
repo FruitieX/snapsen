@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {} from 'react-native';
+
 import {
   Container,
   Content,
@@ -12,19 +12,24 @@ import {
   Spinner
 } from 'native-base';
 
+// Don't care about propTypes in modules
+/* eslint-disable react/prop-types */
+
 class SongDetailsView extends Component {
   static navigationOptions = {
     title: 'Info'
   }
 
   componentDidMount() {
-    this.props.getSongDetails(this.props.songId);
+    const {songId} = this.props;
+
+    this.props.getSongDetails(songId);
   }
 
   render() {
-    const song = this.props.songDetails.data;
-    console.log(song);
-    return (this.props.songDetails.loading ? (
+    const {song, loading} = this.props;
+
+    return (loading ? (
       <Container>
         <Content>
           <Spinner color='#666'/>

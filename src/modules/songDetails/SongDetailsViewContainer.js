@@ -4,8 +4,9 @@ import rest from '../../utils/rest';
 
 export default connect(
   (state, ownProps) => ({
-    songDetails: state.songDetails,
-    songId: 1
+    songId: ownProps.navigation.state.params.songId,
+    song: state.songDetails.data,
+    loading: state.songDetails.loading
   }),
   dispatch => ({
     getSongDetails(songId) {
