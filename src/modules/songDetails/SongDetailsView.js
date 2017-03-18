@@ -7,6 +7,7 @@ import {
   Card,
   CardItem,
   Body,
+  Badge,
   Left,
   Thumbnail,
   Button,
@@ -47,6 +48,9 @@ class SongDetailsView extends Component {
                 <Body>
                   <Text>{song.title}</Text>
                   <Text note>Från {song.bookName}, sida: {song.page}</Text>
+                  <Badge primary>
+                    <Text>{song.type}</Text>
+                  </Badge>
                 </Body>
               </Left>
             </CardItem>
