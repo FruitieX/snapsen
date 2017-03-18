@@ -35,7 +35,12 @@ const AppNavigator = StackNavigator({
   Home: {screen: SongsViewContainer},
   SongDetails: {screen: SongDetailsViewContainer}
 }, {
-  headerMode: 'none'
+  navigationOptions: {
+    header: {
+      tintColor: themeVariables.toolbarTextColor,
+      style: {backgroundColor: themeVariables.toolbarDefaultBg}
+    }
+  }
 });
 
 export default AppNavigator;

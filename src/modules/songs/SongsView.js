@@ -22,12 +22,9 @@ class SongsView extends Component {
   static displayName = 'SongsView';
 
   static navigationOptions = {
-    title: 'Sånger',
-    tabBar: () => ({
-      icon: (props) => (
-        <Icon name='md-musical-note' style={{fontSize: 24, color: props.tintColor}} />
-      )
-    })
+    header: {
+      visible: false
+    }
   }
 
   static propTypes = {
