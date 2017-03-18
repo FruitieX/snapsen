@@ -74,7 +74,7 @@ class SongDetailsView extends Component {
             </CardItem>
 
             <Button transparent textStyle={{color: '#87838B'}}>
-              <Icon name="star" />
+              <Icon name='star' />
               <Text>1,926 stars</Text>
             </Button>
           </Card>
