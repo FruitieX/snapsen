@@ -9,6 +9,8 @@ import {
   Body,
   Left,
   Thumbnail,
+  Button,
+  Icon,
   Spinner
 } from 'native-base';
 
@@ -41,7 +43,7 @@ class SongDetailsView extends Component {
           <Card>
             <CardItem bordered>
               <Left>
-                <Thumbnail tintColor='black' source={{uri: song.imageUrl}}/>
+                <Thumbnail source={{uri: song.imageUrl}}/>
                 <Body>
                   <Text>{song.title}</Text>
                   <Text note>Från {song.bookName}, sida: {song.page}</Text>
@@ -51,9 +53,26 @@ class SongDetailsView extends Component {
 
             <CardItem>
               <Body>
+                <Text note>{song.pre}</Text>
+              </Body>
+            </CardItem>
+
+            <CardItem>
+              <Body>
                 <Text>{song.lyrics}</Text>
               </Body>
             </CardItem>
+
+            <CardItem>
+              <Body>
+                <Text note>{song.post}</Text>
+              </Body>
+            </CardItem>
+
+            <Button transparent textStyle={{color: '#87838B'}}>
+              <Icon name="star" />
+              <Text>1,926 stars</Text>
+            </Button>
           </Card>
         </Content>
       </Container>

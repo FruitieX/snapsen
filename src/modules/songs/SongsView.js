@@ -44,7 +44,7 @@ class SongsView extends Component {
       onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})}
     >
       <Left>
-        <Thumbnail tintColor='black' source={{uri: song.imageUrl}}/>
+        <Thumbnail source={{uri: song.imageUrl}}/>
       </Left>
       <Body>
         <Text>{song.title}</Text>
