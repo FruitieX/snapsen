@@ -7,7 +7,14 @@ class NavigatorView extends Component {
 
   render() {
     return (
-      <AppNavigator/>
+      <AppNavigator
+        navigation={
+          addNavigationHelpers({
+            dispatch: this.props.dispatch,
+            state: this.props.navigatorState
+          })
+        }
+      />
     );
   }
 }
