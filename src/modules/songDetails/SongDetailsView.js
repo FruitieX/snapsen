@@ -24,21 +24,15 @@ class SongDetailsView extends Component {
   }
 
   componentDidMount() {
-    const {songId} = this.props;
+    const {song} = this.props;
 
-    this.props.getSongDetails(songId);
+    this.props.getSongDetails(song.id);
   }
 
   render() {
     const {song, loading} = this.props;
 
-    return (loading ? (
-      <Container>
-        <Content>
-          <Spinner color='#666'/>
-        </Content>
-      </Container>
-    ) : (
+    return (
       <Container>
         <Content>
           <Card>
@@ -55,32 +49,36 @@ class SongDetailsView extends Component {
               </Left>
             </CardItem>
 
-            <CardItem>
-              <Body>
-                <Text note>{song.pre}</Text>
-              </Body>
-            </CardItem>
+            { loading ? (
+              <Spinner color='#666'/>
+            ) : ([
+              <CardItem key='card1'>
+                <Body>
+                  <Text note>{song.pre}</Text>
+                </Body>
+              </CardItem>,
 
-            <CardItem>
-              <Body>
-                <Text>{song.lyrics}</Text>
-              </Body>
-            </CardItem>
+              <CardItem key='card2'>
+                <Body>
+                  <Text>{song.lyrics}</Text>
+                </Body>
+              </CardItem>,
 
-            <CardItem>
-              <Body>
-                <Text note>{song.post}</Text>
-              </Body>
-            </CardItem>
+              <CardItem key='card3'>
+                <Body>
+                  <Text note>{song.post}</Text>
+                </Body>
+              </CardItem>,
 
-            <Button transparent textStyle={{color: '#87838B'}}>
-              <Icon name='star' />
-              <Text>1,926 stars</Text>
-            </Button>
+              <Button key='starbutton' transparent textStyle={{color: '#87838B'}}>
+                <Icon name='star' />
+                <Text>1,926 stars</Text>
+              </Button>
+            ])}
           </Card>
         </Content>
       </Container>
-    ));
+    );
   }
 }
 

@@ -41,7 +41,7 @@ class SongsView extends Component {
       button
       avatar
       key={song.id}
-      onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})}
+      onPress={() => this.props.navigation.navigate('SongDetails', {song})}
     >
       <Left>
         <Thumbnail source={{uri: song.imageUrl}}/>
