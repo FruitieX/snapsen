@@ -3,14 +3,14 @@ import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
 import rest from '../utils/rest';
-import appReducers from '../reducers';
+import SongDetailsReducer from '../reducers/songDetailsState';
 
 const reducers = {
   // Navigator states
   navigatorState: NavigatorStateReducer,
 
   session: SessionStateReducer,
-  ...appReducers,
+  songDetailsState: SongDetailsReducer,
   ...rest.reducers
 };
 
