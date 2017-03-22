@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+import color from 'color';
+import {StatusBar} from  'react-native';
+
 import {
   Container,
   Content,
@@ -20,7 +23,13 @@ import {
 
 class SongDetailsView extends Component {
   static navigationOptions = {
-    title: 'Info'
+    title: 'Info',
+    header: ({state}) => ({
+      style: {
+        backgroundColor: state.params.song.primaryColor
+      },
+      tintColor: '#fff'
+    })
   }
 
   componentDidMount() {
@@ -32,8 +41,10 @@ class SongDetailsView extends Component {
   render() {
     const {song, loading} = this.props;
 
+    const statusBarColor = color(song.primaryColor).darken(0.2).hexString();
     return (
       <Container>
+        <StatusBar animated backgroundColor={statusBarColor} />
         <Content>
           <Card>
             <CardItem bordered>

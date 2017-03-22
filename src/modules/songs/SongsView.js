@@ -5,7 +5,6 @@ import {
   Content,
   Icon,
   Button,
-  Header,
   Item,
   Input,
   Body,
@@ -17,6 +16,8 @@ import {
   Text,
   Spinner
 } from 'native-base';
+
+import {AnimatedHeader} from '../../components/AnimatedHeader';
 
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
@@ -61,7 +62,7 @@ class SongsView extends Component {
 
     return (
       <Container>
-        <Header searchBar rounded>
+        <AnimatedHeader searchBar rounded>
           <Item>
             <Icon name='search' />
             <Input placeholder='Search' onChangeText={throttledRefresh} />
@@ -70,7 +71,7 @@ class SongsView extends Component {
           <Button transparent>
             <Text>Search</Text>
           </Button>
-        </Header>
+        </AnimatedHeader>
         <Content>
           {
             loading
