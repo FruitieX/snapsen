@@ -1,4 +1,4 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
 
 import {
   Container,
@@ -9,6 +9,8 @@ import {
   Item,
   Input,
   Body,
+  Thumbnail,
+  Left,
   Right,
   ListItem,
   List,
@@ -16,37 +18,37 @@ import {
   Spinner
 } from 'native-base';
 
+// Don't care about propTypes in modules
+/* eslint-disable react/prop-types */
+
 class SongsView extends Component {
   static displayName = 'SongsView';
 
   static navigationOptions = {
-    title: 'Sånger',
-    tabBar: () => ({
-      icon: (props) => (
-        <Icon name='md-musical-note' style={{fontSize: 24, color: props.tintColor}} />
-      )
-    })
+    header: {
+      visible: false
+    }
   }
-
-  static propTypes = {
-    refresh: PropTypes.func.isRequired,
-    throttledRefresh: PropTypes.func.isRequired,
-    songs: PropTypes.shape({
-      data: PropTypes.array.isRequired,
-      loading: PropTypes.bool.isRequired
-    })
-  };
 
   componentDidMount() {
     const {refresh} = this.props;
+
     refresh();
   }
 
   renderRow = song => (
-    <ListItem button onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})} key={song.id}>
+    <ListItem
+      button
+      avatar
+      key={song.id}
+      onPress={() => this.props.navigation.navigate('SongDetails', {songId: song.id})}
+    >
+      <Left>
+        <Thumbnail source={{uri: song.imageUrl}}/>
+      </Left>
       <Body>
-        <Text>{song.title}</Text>
-        <Text note>TF:s Sångbok, Sida {Math.round(Math.random() * 200)}</Text>
+        <Text numberOfLines={1}>{song.title}</Text>
+        <Text note numberOfLines={1}>{song.bookName}, sida {song.page}</Text>
       </Body>
       <Right>
         <Icon name='arrow-forward' />
@@ -55,7 +57,7 @@ class SongsView extends Component {
   );
 
   render() {
-    const {songs, throttledRefresh} = this.props;
+    const {songs, loading, throttledRefresh} = this.props;
 
     return (
       <Container>
@@ -71,9 +73,9 @@ class SongsView extends Component {
         </Header>
         <Content>
           {
-            songs.loading
-            ? <Spinner />
-            : <List dataArray={songs.data} renderRow={this.renderRow} />
+            loading
+            ? <Spinner color='#666'/>
+            : <List dataArray={songs} renderRow={this.renderRow} />
           }
         </Content>
       </Container>

@@ -1,5 +1,5 @@
-import {Platform} from 'react-native';
-import {TabNavigator, StackNavigator} from 'react-navigation';
+//import {Platform} from 'react-native';
+import {StackNavigator} from 'react-navigation';
 
 import themeVariables from '../../../native-base-theme/variables/platform';
 
@@ -7,6 +7,7 @@ import SongsViewContainer from '../songs/SongsViewContainer';
 import SongDetailsViewContainer from '../songDetails/SongDetailsViewContainer';
 
 // TabNavigator is nested inside StackNavigator
+/*
 export const MainScreenNavigator = TabNavigator({
   Songs: {screen: SongsViewContainer}
 }, {
@@ -26,11 +27,20 @@ MainScreenNavigator.navigationOptions = {
     visible: false
   }
 };
+*/
 
 // Root navigator is a StackNavigator
 const AppNavigator = StackNavigator({
-  Home: {screen: MainScreenNavigator},
+  //Home: {screen: MainScreenNavigator},
+  Home: {screen: SongsViewContainer},
   SongDetails: {screen: SongDetailsViewContainer}
+}, {
+  navigationOptions: {
+    header: {
+      tintColor: themeVariables.toolbarTextColor,
+      style: {backgroundColor: themeVariables.toolbarDefaultBg}
+    }
+  }
 });
 
 export default AppNavigator;
