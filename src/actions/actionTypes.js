@@ -1,1 +1,2 @@
-//export const LOCK_NAVIGATOR = 'LOCK_NAVIGATOR';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
+export const SEARCH_CHANGE = 'SEARCH_CHANGE';

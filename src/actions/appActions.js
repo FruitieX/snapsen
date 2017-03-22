@@ -1,7 +1,14 @@
-//import * as types from './actionTypes.js';
+import * as types from './actionTypes.js';
 
-//export function lockNavigator() {
-//  return {
-//    type: types.LOCK_NAVIGATOR
-//  };
-//}
+export function clearSearch() {
+  return {
+    type: types.CLEAR_SEARCH
+  };
+}
+
+export function searchChange(text) {
+  return {
+    type: types.SEARCH_CHANGE,
+    payload: text
+  };
+}

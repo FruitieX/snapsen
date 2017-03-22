@@ -57,15 +57,21 @@ class SongsView extends Component {
   );
 
   render() {
-    const {songs, loading, throttledRefresh} = this.props;
+    const {songs, loading, throttledRefresh, changeSearch, clearSearch, searchText} = this.props;
 
     return (
       <Container>
         <Header searchBar rounded>
           <Item>
             <Icon name='search' />
-            <Input placeholder='Search' onChangeText={throttledRefresh} />
-            <Icon active name='md-musical-note' />
+            <Input placeholder='Search' value={searchText} onChangeText={(text) => {
+              changeSearch(text);
+              throttledRefresh(text);
+            }} />
+          <Icon active name='md-close' onPress={() => {
+            clearSearch();
+            throttledRefresh('');
+          }}/>
           </Item>
           <Button transparent>
             <Text>Search</Text>
