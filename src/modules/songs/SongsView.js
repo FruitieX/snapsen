@@ -5,8 +5,6 @@ import {
   Content,
   Icon,
   Button,
-  Item,
-  Input,
   Body,
   Thumbnail,
   Left,
@@ -14,10 +12,10 @@ import {
   ListItem,
   List,
   Text,
-  Spinner
+  Spinner,
+  Header,
+  Title
 } from 'native-base';
-
-import {AnimatedHeader} from '../../components/AnimatedHeader';
 
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
@@ -58,26 +56,23 @@ class SongsView extends Component {
   );
 
   render() {
-    const {songs, loading, throttledRefresh, changeSearch, clearSearch, searchText} = this.props;
+    const {songs, loading} = this.props;
 
     return (
       <Container>
-        <AnimatedHeader searchBar rounded>
-          <Item>
-            <Icon name='search' />
-            <Input placeholder='Search' value={searchText} onChangeText={(text) => {
-              changeSearch(text);
-              throttledRefresh(text);
-            }} />
-          <Icon active name='md-close' onPress={() => {
-            clearSearch();
-            throttledRefresh('');
-          }}/>
-          </Item>
-          <Button transparent>
-            <Text>Search</Text>
-          </Button>
-        </AnimatedHeader>
+        <Header>
+          <Left>
+            <Title>Sånger</Title>
+          </Left>
+          <Right>
+            <Button transparent>
+                <Icon name='search' />
+            </Button>
+            <Button transparent>
+                <Icon name='settings' />
+            </Button>
+          </Right>
+        </Header>
         <Content>
           {
             loading
