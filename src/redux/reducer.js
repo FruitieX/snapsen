@@ -5,7 +5,7 @@ import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState'
 //import rest from '../utils/rest';
 import SongDetailsReducer from '../modules/songDetails/SongDetailsState';
 import SongsReducer from '../modules/songs/SongsState';
-import BooksReducer from '../modules/books/BooksState';
+import BooksReducer from '../modules/songBooks/SongBooksState';
 
 const reducers = {
   // Navigator states
