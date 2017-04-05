@@ -9,6 +9,8 @@ import {
   Thumbnail,
   Left,
   Right,
+  Item,
+  Input,
   ListItem,
   List,
   Text,
@@ -57,11 +59,9 @@ class SongsView extends Component {
     );
   };
 
-  render() {
-    //const {throttledRefresh, changeSearch, clearSearch, searchText} = this.props;
-    const {books} = this.props;
-
+  getSongsFromBooks(books) {
     let songs = [];
+
     books.forEach((book, index) => {
       const newSongs = book.data.songs.map(song => ({
         ...song,
@@ -71,24 +71,60 @@ class SongsView extends Component {
       songs = [...songs, ...newSongs];
     });
 
-    return (
-      <Container>
+    return songs;
+  }
+
+  render() {
+    const {activateSearch, changeSearch, clearSearch, searchText} = this.props;
+    const {books} = this.props;
+
+    let songs = this.getSongsFromBooks(books);
+
+    if (searchText) {
+      const filter = searchText.toLowerCase();
+      songs = songs.filter(song => {
+        const title = song.title.toLowerCase();
+        return title.indexOf(filter) !== -1;
+      });
+    }
+
+    // daaaaamn react native is sloooooow with long lists, especially in debug mode
+    if (__DEV__) {
+      songs = songs.slice(0, 20);
+    }
+
+    const header = searchText === null
+      ? (
         <Header>
           <Body>
             <Title>Sånger</Title>
           </Body>
           <Right>
-            <Button transparent>
-                <Icon name='search' />
+            <Button transparent onPress={activateSearch}>
+              <Icon name='search' />
             </Button>
-            <Button transparent>
-                <Icon
-                  name='settings'
-                  onPress={() => this.props.navigation.navigate('SongBooks')} />
+            <Button transparent onPress={() => this.props.navigation.navigate('SongBooks')}>
+              <Icon name='settings' />
             </Button>
           </Right>
         </Header>
+      ) : (
+        <Header searchBar rounded>
+          <Left style={{flex: 1}}>
+            <Button transparent onPress={clearSearch}>
+              <Icon name='arrow-back' />
+            </Button>
+          </Left>
+          <Item style={{flex: 4}}>
+            <Input placeholder='Sök sånger' value={searchText} onChangeText={changeSearch} />
+          </Item>
+        </Header>
+      );
+
+    return (
+      <Container>
         <Content>
+          { header }
           <List dataArray={songs} renderRow={this.renderRow} />
         </Content>
       </Container>

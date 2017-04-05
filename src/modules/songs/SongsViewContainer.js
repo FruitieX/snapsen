@@ -1,11 +1,6 @@
 import {connect} from 'react-redux';
 import SongsView from './SongsView';
-import debounce from 'lodash/throttle';
-import {clearSearch, searchChange} from '../../actions/appActions';
-
-import rest from '../../utils/rest';
-
-const refresh = (dispatch, filter) => dispatch(rest.actions.songs({filter}));
+import {activateSearch, clearSearch, searchChange} from './SongsState';
 
 export default connect(
   state => ({
@@ -13,9 +8,8 @@ export default connect(
     searchText: state.songsState.searchText
   }),
   dispatch => ({
-    refresh: (filter) => refresh(dispatch, filter),
+    activateSearch: () => dispatch(activateSearch()),
     changeSearch: (text) => dispatch(searchChange(text)),
-    clearSearch: () => dispatch(clearSearch()),
-    throttledRefresh: debounce((filter) => refresh(dispatch, filter), 500, {leading: true})
+    clearSearch: () => dispatch(clearSearch())
   })
 )(SongsView);
