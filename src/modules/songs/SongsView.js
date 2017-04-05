@@ -12,7 +12,6 @@ import {
   ListItem,
   List,
   Text,
-  Spinner,
   Header,
   Title
 } from 'native-base';
@@ -28,14 +27,6 @@ class SongsView extends Component {
       visible: false
     }
   }
-
-  /*
-  componentDidMount() {
-    const {refresh} = this.props;
-
-    refresh();
-  }
-  */
 
   renderRow = song => {
     const {books} = this.props;

@@ -37,7 +37,7 @@ const AppNavigator = StackNavigator({
   Home: {screen: SongsViewContainer},
   SongDetails: {screen: SongDetailsViewContainer},
   SongBooks: {screen: SongBooksViewContainer},
-  addSongBook: {screen: AddSongBookViewContainer}
+  AddSongBook: {screen: AddSongBookViewContainer}
 }, {
   navigationOptions: {
     header: {

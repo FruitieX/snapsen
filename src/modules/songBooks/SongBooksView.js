@@ -11,7 +11,6 @@ import {
   ListItem,
   List,
   Text,
-  Spinner,
   Fab
 } from 'native-base';
 
@@ -57,6 +56,7 @@ class SongBooksView extends Component {
             direction='right'
             containerStyle={{marginLeft: 10}}
             style={{backgroundColor: '#5067FF'}}
+            onPress={() => this.props.navigation.navigate('AddSongBook')}
             position='bottomRight'
             >
             <Icon name='md-add' />
