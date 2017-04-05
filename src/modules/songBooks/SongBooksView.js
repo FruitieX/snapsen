@@ -29,7 +29,7 @@ class SongBooksView extends Component {
       button
       avatar
       key={book.data.title}
-      onPress={() => this.props.navigation.navigate('BookDetails', {book})}
+      onPress={() => this.props.navigation.navigate('SongBookDetails', {book})}
     >
       <Left>
         <Thumbnail source={{uri: book.data.imageUrl}}/>

@@ -7,6 +7,7 @@ import SongsViewContainer from '../songs/SongsViewContainer';
 import SongDetailsViewContainer from '../songDetails/SongDetailsViewContainer';
 import SongBooksViewContainer from '../songBooks/SongBooksViewContainer';
 import AddSongBookViewContainer from '../addSongBook/AddSongBookViewContainer';
+import SongBookDetailsViewContainer from '../songBookDetails/SongBookDetailsViewContainer';
 
 // TabNavigator is nested inside StackNavigator
 /*
@@ -37,7 +38,8 @@ const AppNavigator = StackNavigator({
   Home: {screen: SongsViewContainer},
   SongDetails: {screen: SongDetailsViewContainer},
   SongBooks: {screen: SongBooksViewContainer},
-  AddSongBook: {screen: AddSongBookViewContainer}
+  AddSongBook: {screen: AddSongBookViewContainer},
+  SongBookDetails: {screen: SongBookDetailsViewContainer}
 }, {
   navigationOptions: {
     header: {
