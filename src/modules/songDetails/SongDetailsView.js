@@ -42,7 +42,6 @@ class SongDetailsView extends Component {
 
   render() {
     const {song, book} = this.props;
-    console.log(song, book);
 
     const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
     return (

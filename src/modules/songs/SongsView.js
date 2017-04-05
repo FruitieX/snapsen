@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 
 import {
+  FlatList
+} from 'react-native';
+
+import {
   Container,
   Content,
   Icon,
@@ -18,6 +22,8 @@ import {
   Title
 } from 'native-base';
 
+import {NBFlatList} from './nbflatlist';
+
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
 
@@ -30,7 +36,8 @@ class SongsView extends Component {
     }
   }
 
-  renderRow = song => {
+  renderRow = ({item}) => {
+    const song = item;
     const {books} = this.props;
 
     const book = books[song.bookId].data;
@@ -125,7 +132,7 @@ class SongsView extends Component {
       <Container>
         <Content>
           { header }
-          <List dataArray={songs} renderRow={this.renderRow} />
+          <NBFlatList keyExtractor={song => song.title} dataArray={songs} renderRow={this.renderRow} />
         </Content>
       </Container>
     );
