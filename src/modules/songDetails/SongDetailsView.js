@@ -26,22 +26,25 @@ class SongDetailsView extends Component {
     title: 'Info',
     header: ({state}) => ({
       style: {
-        backgroundColor: state.params.song.primaryColor
+        backgroundColor: state.params.primaryColor // TODO
       },
       tintColor: '#fff'
     })
   }
 
+  /*
   componentDidMount() {
     const {song} = this.props;
 
     this.props.getSongDetails(song.id);
   }
+  */
 
   render() {
-    const {song, loading} = this.props;
+    const {song, book} = this.props;
+    console.log(song, book);
 
-    const statusBarColor = color(song.primaryColor).darken(0.2).hexString();
+    const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
     return (
       <Container>
         <StatusBar animated backgroundColor={statusBarColor} />
@@ -49,10 +52,10 @@ class SongDetailsView extends Component {
           <Card>
             <CardItem bordered>
               <Left>
-                <Thumbnail source={{uri: song.imageUrl}}/>
+                <Thumbnail source={{uri: book.imageUrl}}/>
                 <Body>
                   <Text>{song.title}</Text>
-                  <Text note>Från {song.bookName}, sida: {song.page}</Text>
+                  <Text note>Från {book.title}, sida: {song.page}</Text>
                   <Badge primary>
                     <Text>{song.type}</Text>
                   </Badge>
@@ -60,32 +63,28 @@ class SongDetailsView extends Component {
               </Left>
             </CardItem>
 
-            { loading ? (
-              <Spinner color='#666'/>
-            ) : ([
-              <CardItem key='card1'>
-                <Body>
-                  <Text note>{song.pre}</Text>
-                </Body>
-              </CardItem>,
+            <CardItem>
+              <Body>
+                <Text note>{song.pre}</Text>
+              </Body>
+            </CardItem>
 
-              <CardItem key='card2'>
-                <Body>
-                  <Text>{song.lyrics}</Text>
-                </Body>
-              </CardItem>,
+            <CardItem>
+              <Body>
+                <Text>{song.lyrics}</Text>
+              </Body>
+            </CardItem>
 
-              <CardItem key='card3'>
-                <Body>
-                  <Text note>{song.post}</Text>
-                </Body>
-              </CardItem>,
+            <CardItem>
+              <Body>
+                <Text note>{song.post}</Text>
+              </Body>
+            </CardItem>
 
-              <Button key='starbutton' transparent textStyle={{color: '#87838B'}}>
-                <Icon name='star' />
-                <Text>1,926 stars</Text>
-              </Button>
-            ])}
+            <Button transparent textStyle={{color: '#87838B'}}>
+              <Icon name='star' />
+              <Text>1,926 stars</Text>
+            </Button>
           </Card>
         </Content>
       </Container>
