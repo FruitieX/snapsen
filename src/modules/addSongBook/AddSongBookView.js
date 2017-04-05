@@ -3,12 +3,12 @@ import React, {Component} from 'react';
 import {
   Container,
   Content,
-  Card,
-  Body,
-  CardItem,
+  InputGroup,
   Input,
-  Item,
-  Label
+  Icon,
+  Button,
+  Card,
+  CardItem
 } from 'native-base';
 
 // Don't care about propTypes in modules
@@ -24,17 +24,18 @@ class AddSongBookView extends Component {
       <Container>
         <Content>
           <Card>
-            <CardItem bordered>
-              <Body>
-                <Item floatingLabel>
-                  <Label>URL till sångbok</Label>
-                  <Input />
-                </Item>
-              </Body>
+            <CardItem>
+              <InputGroup>
+                  <Input placeholder='Url till sångbok'/>
+                  <Button transparent
+                    onPress={() => console.log('Nu söker de')}>
+                    <Icon name='search'/>
+                  </Button>
+              </InputGroup>
             </CardItem>
           </Card>
         </Content>
-      </Container>
+    </Container>
     );
   }
 }
