@@ -9,9 +9,7 @@ const refresh = (dispatch, filter) => dispatch(rest.actions.songs({filter}));
 
 export default connect(
   state => ({
-    songs: state.songs.data,
-    loading: state.songs.loading,
-    searchText: state.songsState.searchText
+    books: state.books
   }),
   dispatch => ({
     refresh: (filter) => refresh(dispatch, filter),

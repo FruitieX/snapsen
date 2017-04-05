@@ -24,25 +24,19 @@ class SongBooksView extends Component {
     title: 'Sångböcker'
   }
 
-  componentDidMount() {
-    const {refresh} = this.props;
-
-    refresh();
-  }
-
-  renderRow = song => (
+  renderRow = book => (
     <ListItem
       button
       avatar
-      key={song.id}
-      onPress={() => this.props.navigation.navigate('SongDetails', {song})}
+      key={book.data.title}
+      onPress={() => this.props.navigation.navigate('BookDetails', {book})}
     >
       <Left>
-        <Thumbnail source={{uri: song.imageUrl}}/>
+        <Thumbnail source={{uri: book.data.imageUrl}}/>
       </Left>
       <Body>
-        <Text numberOfLines={1}>{song.title}</Text>
-        <Text note numberOfLines={1}>{song.bookName}, sida {song.page}</Text>
+        <Text numberOfLines={1}>{book.data.title}</Text>
+        <Text note numberOfLines={1}>{book.data.songs.length} sånger</Text>
       </Body>
       <Right>
         <Icon name='arrow-forward' />
@@ -51,16 +45,12 @@ class SongBooksView extends Component {
   );
 
   render() {
-    const {songs, loading} = this.props;
+    const {books} = this.props;
 
     return (
       <Container>
         <Content>
-          {
-            loading
-            ? <Spinner color='#666'/>
-            : <List dataArray={songs} renderRow={this.renderRow} />
-          }
+          <List dataArray={books} renderRow={this.renderRow} />
         </Content>
       </Container>
     );
