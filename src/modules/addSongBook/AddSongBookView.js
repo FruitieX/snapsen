@@ -3,7 +3,12 @@ import React, {Component} from 'react';
 import {
   Container,
   Content,
-  Text
+  Card,
+  Body,
+  CardItem,
+  Input,
+  Item,
+  Label
 } from 'native-base';
 
 // Don't care about propTypes in modules
@@ -18,7 +23,16 @@ class AddSongBookView extends Component {
     return (
       <Container>
         <Content>
-          <Text>Temp</Text>
+          <Card>
+            <CardItem bordered>
+              <Body>
+                <Item floatingLabel>
+                  <Label>URL till sångbok</Label>
+                  <Input />
+                </Item>
+              </Body>
+            </CardItem>
+          </Card>
         </Content>
       </Container>
     );
