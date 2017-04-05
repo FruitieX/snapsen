@@ -11,7 +11,8 @@ import {
   ListItem,
   List,
   Text,
-  Spinner
+  Spinner,
+  Fab
 } from 'native-base';
 
 // Don't care about propTypes in modules
@@ -62,6 +63,14 @@ class SongBooksView extends Component {
             : <List dataArray={songs} renderRow={this.renderRow} />
           }
         </Content>
+        <Fab
+            direction='right'
+            containerStyle={{marginLeft: 10}}
+            style={{backgroundColor: '#5067FF'}}
+            position='bottomRight'
+            >
+            <Icon name='md-add' />
+        </Fab>
       </Container>
     );
   }
