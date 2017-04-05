@@ -29,34 +29,56 @@ class SongsView extends Component {
     }
   }
 
+  /*
   componentDidMount() {
     const {refresh} = this.props;
 
     refresh();
   }
+  */
 
-  renderRow = song => (
-    <ListItem
-      button
-      avatar
-      key={song.id}
-      onPress={() => this.props.navigation.navigate('SongDetails', {song})}
-    >
-      <Left>
-        <Thumbnail source={{uri: song.imageUrl}}/>
-      </Left>
-      <Body>
-        <Text numberOfLines={1}>{song.title}</Text>
-        <Text note numberOfLines={1}>{song.bookName}, sida {song.page}</Text>
-      </Body>
-      <Right>
-        <Icon name='arrow-forward' />
-      </Right>
-    </ListItem>
-  );
+  renderRow = song => {
+    const {books} = this.props;
+
+    const book = books[song.bookId].data;
+
+    return (
+      <ListItem
+        button
+        avatar
+        key={song.id}
+        onPress={() => this.props.navigation.navigate('SongDetails', {
+          primaryColor: book.primaryColor,
+          song
+        })}
+      >
+        <Left>
+          <Thumbnail source={{uri: book.imageUrl}}/>
+        </Left>
+        <Body>
+          <Text numberOfLines={1}>{song.title}</Text>
+          <Text note numberOfLines={1}>{book.title}, sida {song.page}</Text>
+        </Body>
+        <Right>
+          <Icon name='arrow-forward' />
+        </Right>
+      </ListItem>
+    );
+  };
 
   render() {
-    const {songs, loading} = this.props;
+    //const {throttledRefresh, changeSearch, clearSearch, searchText} = this.props;
+    const {books} = this.props;
+
+    let songs = [];
+    books.forEach((book, index) => {
+      const newSongs = book.data.songs.map(song => ({
+        ...song,
+        bookId: index
+      }));
+
+      songs = [...songs, ...newSongs];
+    });
 
     return (
       <Container>
@@ -76,11 +98,7 @@ class SongsView extends Component {
           </Right>
         </Header>
         <Content>
-          {
-            loading
-            ? <Spinner color='#666'/>
-            : <List dataArray={songs} renderRow={this.renderRow} />
-          }
+          <List dataArray={songs} renderRow={this.renderRow} />
         </Content>
       </Container>
     );

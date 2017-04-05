@@ -29,6 +29,7 @@ Information about request: `state.teams.error`, `state.teams.sync`, `state.teams
 */
 
 const rest = reduxApi({
+  /*
   songs: {
     url: `${config.apiRoot}/songs`,
     transformer: transformers.array,
@@ -38,7 +39,7 @@ const rest = reduxApi({
     url: `${config.apiRoot}/songs/:songId`,
     crud: true
   }
-
+  */
   // Add more API endpoints here! Examples below:
 
   /*
