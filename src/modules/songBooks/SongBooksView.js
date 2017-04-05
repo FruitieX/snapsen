@@ -4,7 +4,6 @@ import {
   Container,
   Content,
   Icon,
-  Button,
   Body,
   Thumbnail,
   Left,
@@ -12,21 +11,17 @@ import {
   ListItem,
   List,
   Text,
-  Spinner,
-  Header,
-  Title
+  Spinner
 } from 'native-base';
 
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
 
-class SongsView extends Component {
-  static displayName = 'SongsView';
+class SongBooksView extends Component {
+  static displayName = 'SongBooksView';
 
   static navigationOptions = {
-    header: {
-      visible: false
-    }
+    title: 'Sångböcker'
   }
 
   componentDidMount() {
@@ -60,21 +55,6 @@ class SongsView extends Component {
 
     return (
       <Container>
-        <Header>
-          <Body>
-            <Title>Sånger</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-                <Icon name='search' />
-            </Button>
-            <Button transparent>
-                <Icon
-                  name='settings'
-                  onPress={() => this.props.navigation.navigate('SongBooks')} />
-            </Button>
-          </Right>
-        </Header>
         <Content>
           {
             loading
@@ -87,4 +67,4 @@ class SongsView extends Component {
   }
 }
 
-export default SongsView;
+export default SongBooksView;

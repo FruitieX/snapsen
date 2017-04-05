@@ -5,6 +5,7 @@ import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState'
 import rest from '../utils/rest';
 import SongDetailsReducer from '../modules/songDetails/SongDetailsState';
 import SongsReducer from '../modules/songs/SongsState';
+import SongBooksReducer from '../modules/songBooks/SongBooksState';
 
 const reducers = {
   // Navigator states
@@ -13,6 +14,7 @@ const reducers = {
   session: SessionStateReducer,
   songDetailsState: SongDetailsReducer,
   songsState: SongsReducer,
+  songBooksState: SongBooksReducer,
   ...rest.reducers
 };
 

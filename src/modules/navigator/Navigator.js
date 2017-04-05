@@ -5,6 +5,7 @@ import themeVariables from '../../../native-base-theme/variables/platform';
 
 import SongsViewContainer from '../songs/SongsViewContainer';
 import SongDetailsViewContainer from '../songDetails/SongDetailsViewContainer';
+import SongBooksViewContainer from '../songBooks/SongBooksViewContainer';
 
 // TabNavigator is nested inside StackNavigator
 /*
@@ -33,7 +34,8 @@ MainScreenNavigator.navigationOptions = {
 const AppNavigator = StackNavigator({
   //Home: {screen: MainScreenNavigator},
   Home: {screen: SongsViewContainer},
-  SongDetails: {screen: SongDetailsViewContainer}
+  SongDetails: {screen: SongDetailsViewContainer},
+  SongBooks: {screen: SongBooksViewContainer}
 }, {
   navigationOptions: {
     header: {
