@@ -7,7 +7,7 @@ export default connect(
     song: {
       ...ownProps.navigation.state.params.song
     },
-    book: state.books[ownProps.navigation.state.params.song.bookId].data
+    book: state.books[ownProps.navigation.state.params.song.url]
   }),
   dispatch => ({
     getSongDetails(songId) {

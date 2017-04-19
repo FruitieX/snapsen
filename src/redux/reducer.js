@@ -2,7 +2,7 @@ import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
 import NavigatorStateReducer from '../modules/navigator/NavigatorState';
 import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
 
-//import rest from '../utils/rest';
+import rest from '../utils/rest';
 import SongDetailsReducer from '../modules/songDetails/SongDetailsState';
 import SongsReducer from '../modules/songs/SongsState';
 import BooksReducer from '../modules/songBooks/SongBooksState';
@@ -14,8 +14,8 @@ const reducers = {
   session: SessionStateReducer,
   songDetailsState: SongDetailsReducer,
   songsState: SongsReducer,
-  books: BooksReducer
-  //...rest.reducers
+  books: BooksReducer,
+  ...rest.reducers
 };
 
 const namespacedReducer = combineReducers(reducers);

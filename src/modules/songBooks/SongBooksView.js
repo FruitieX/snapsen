@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import values from 'lodash/values';
 
 import {
   Container,
@@ -28,15 +29,15 @@ class SongBooksView extends Component {
     <ListItem
       button
       avatar
-      key={book.data.title}
+      key={book.title}
       onPress={() => this.props.navigation.navigate('SongBookDetails', {book})}
     >
       <Left>
-        <Thumbnail source={{uri: book.data.image}}/>
+        <Thumbnail source={{uri: book.image}}/>
       </Left>
       <Body>
-        <Text numberOfLines={1}>{book.data.title}</Text>
-        <Text note numberOfLines={1}>{book.data.songs.length} sånger</Text>
+        <Text numberOfLines={1}>{book.title}</Text>
+        <Text note numberOfLines={1}>{book.songs.length} sånger</Text>
       </Body>
       <Right>
         <Icon name='arrow-forward' />
@@ -50,7 +51,7 @@ class SongBooksView extends Component {
     return (
       <Container>
         <Content>
-          <List dataArray={books} renderRow={this.renderRow} />
+          <List dataArray={values(books)} renderRow={this.renderRow} />
         </Content>
         <Fab
             direction='right'
