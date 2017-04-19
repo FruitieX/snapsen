@@ -10,31 +10,23 @@ export function addBook(book) {
   };
 }
 
-export function deleteBook(index) {
+export function deleteBook(url) {
   return {
     type: DELETE_BOOK,
-    payload: index
+    payload: url
   };
 }
 
-const initialState = [
-  {
-    url: 'https://fruitiex.github.io/snapsen/books/tf.json',
-    data
-  }
-];
+const initialState = {
+  'https://fruitiex.github.io/snapsen/books/tf.json': data
+};
 
 export default function booksState(state = initialState, action = {}) {
   switch (action.type) {
     case ADD_BOOK: {
-      const books = [
-        ...state.books,
-        action.payload
-      ];
-
       return {
         ...state,
-        books
+        [action.payload.url]: action.payload.data
       };
     }
     default:

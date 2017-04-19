@@ -29,6 +29,9 @@ Information about request: `state.teams.error`, `state.teams.sync`, `state.teams
 */
 
 const rest = reduxApi({
+  downloadBook: {
+    url: ':url'
+  }
   /*
   songs: {
     url: `${config.apiRoot}/songs`,

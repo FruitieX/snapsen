@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import forIn from 'lodash/forIn';
 
 import {
   Container,
@@ -32,8 +33,7 @@ class SongsView extends Component {
 
   renderRow = song => {
     const {books} = this.props;
-
-    const book = books[song.bookId].data;
+    const book = books[song.url];
 
     return (
       <ListItem
@@ -46,7 +46,7 @@ class SongsView extends Component {
         })}
       >
         <Left>
-          <Thumbnail source={{uri: book.imageUrl}}/>
+          <Thumbnail source={{uri: book.image}}/>
         </Left>
         <Body>
           <Text numberOfLines={1}>{song.title}</Text>
@@ -62,10 +62,10 @@ class SongsView extends Component {
   getSongsFromBooks(books) {
     let songs = [];
 
-    books.forEach((book, index) => {
-      const newSongs = book.data.songs.map(song => ({
+    forIn(books, (book, url) => {
+      const newSongs = book.songs.map(song => ({
         ...song,
-        bookId: index
+        url
       }));
 
       songs = [...songs, ...newSongs];

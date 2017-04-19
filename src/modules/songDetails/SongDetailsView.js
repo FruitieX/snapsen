@@ -52,7 +52,7 @@ class SongDetailsView extends Component {
           <Card>
             <CardItem bordered>
               <Left>
-                <Thumbnail source={{uri: book.imageUrl}}/>
+                <Thumbnail source={{uri: book.image}}/>
                 <Body>
                   <Text>{song.title}</Text>
                   <Text note>Från {book.title}, sida: {song.page}</Text>
