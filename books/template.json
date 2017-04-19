@@ -1,0 +1,23 @@
+{
+  "title": "Songbook Name Here",
+  "imageUrl": "https://fruitiex.org/files/tf_logo.png",
+  "primaryColor": "#000000",
+  "songs": [
+    {
+      "title": "Song Title",
+      "page": 1,
+      "lyrics": "First lyrics line\n\nSecond line",
+      "pre": "Pre lyrics text (optional)",
+      "post": "Post lyrics text (optional)",
+      "type": "Song type"
+    },
+    {
+      "title": "Another Song",
+      "page": 2,
+      "lyrics": "First lyrics line\n\nSecond line",
+      "pre": "Pre lyrics text (optional)",
+      "post": "Post lyrics text (optional)",
+      "type": "Song type"
+    }
+  ]
+}
