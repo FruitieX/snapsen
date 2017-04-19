@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import color from 'color';
 import {StatusBar} from 'react-native';
+import {get} from '../../utils/api';
 
 import {
   Container,
@@ -30,6 +31,12 @@ class SongBookDetailsView extends Component {
     })
   }
 
+  updateSongBook = async () => {
+    const book = await get(this.props.book.url);
+    this.props.updateBook({data: book, url: this.props.book.url});
+    console.log('Updated');
+  }
+
   render() {
     const {book, deleteBook} = this.props;
     const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
@@ -49,7 +56,9 @@ class SongBookDetailsView extends Component {
             </CardItem>
             <CardItem>
             <Col>
-              <Button success iconLeft block>
+              <Button success iconLeft block onPress={() => {
+                this.updateSongBook();
+              }}>
                 <Icon name='cloud-download' />
                 <Text> Uppdatera </Text>
               </Button>

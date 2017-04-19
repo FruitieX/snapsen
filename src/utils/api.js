@@ -1,6 +1,6 @@
 import Promise from 'bluebird';
 import HttpError from 'standard-http-error';
-import {getConfiguration} from '../utils/configuration';
+//import {getConfiguration} from '../utils/configuration';
 import {getAuthenticationToken} from '../utils/authentication';
 
 const EventEmitter = require('event-emitter');
@@ -81,10 +81,7 @@ export async function request(method, path, body, suppressRedBox) {
  * Takes a relative path and makes it a full URL to API server
  */
 export function url(path) {
-  const apiRoot = getConfiguration('API_ROOT');
-  return path.indexOf('/') === 0
-    ? apiRoot + path
-    : apiRoot + '/' + path;
+  return path;
 }
 
 /**
