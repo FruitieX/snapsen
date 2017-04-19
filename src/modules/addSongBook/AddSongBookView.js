@@ -57,10 +57,13 @@ class AddSongBookView extends Component {
             </Body>
           </ListItem>
           <CardItem>
-            <Button success disabled={!this.state.url} onPress={() => add({
-              url: this.state.fetchedUrl,
-              data: book
-            })}>
+            <Button success disabled={!this.state.url} onPress={() => {
+              add({
+                url: this.state.fetchedUrl,
+                data: book
+              });
+              this.props.navigation.goBack();
+            }}>
               <Icon name='add'/>
               <Text>Lägg till mina sångböcker</Text>
             </Button>
