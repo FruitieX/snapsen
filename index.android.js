@@ -4,6 +4,7 @@ import AppViewContainer from './src/modules/AppViewContainer';
 import React, {Component} from 'react';
 import {AppRegistry, BackAndroid} from 'react-native';
 import {NavigationActions} from 'react-navigation';
+import {clearSearch} from './src/modules/songs/SongsState';
 
 class Snapsen extends Component {
   componentWillMount() {
@@ -12,12 +13,15 @@ class Snapsen extends Component {
 
   navigateBack() {
     const navigatorState = store.getState().navigatorState;
-
     const currentStackScreen = navigatorState.index;
-    const currentTab = navigatorState.routes[0].index;
 
-    if (currentTab !== 0 || currentStackScreen !== 0) {
+    if (currentStackScreen !== 0) {
       store.dispatch(NavigationActions.back());
+      return true;
+    }
+
+    if (store.getState().songsState.searchText !== null) {
+      store.dispatch(clearSearch());
       return true;
     }
 

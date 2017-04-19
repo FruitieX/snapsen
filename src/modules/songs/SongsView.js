@@ -110,13 +110,13 @@ class SongsView extends Component {
         </Header>
       ) : (
         <Header searchBar rounded>
-          <Left style={{flex: 1}}>
+          <Left>
             <Button transparent onPress={clearSearch}>
               <Icon name='arrow-back' />
             </Button>
           </Left>
           <Item style={{flex: 4}}>
-            <Input placeholder='Sök sånger' value={searchText} onChangeText={changeSearch} />
+            <Input autoFocus placeholder='Sök sånger' value={searchText} onChangeText={changeSearch} />
           </Item>
         </Header>
       );
