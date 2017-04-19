@@ -31,8 +31,8 @@ class SongBookDetailsView extends Component {
   }
 
   render() {
-    const {book} = this.props;
-    const statusBarColor = color(book.data.primaryColor).darken(0.2).hexString();
+    const {book, deleteBook} = this.props;
+    const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
     return (
       <Container>
         <StatusBar animated backgroundColor={statusBarColor} />
@@ -40,10 +40,10 @@ class SongBookDetailsView extends Component {
           <Card>
             <CardItem bordered>
               <Left>
-                <Thumbnail source={{uri: book.data.imageUrl}}/>
+                <Thumbnail source={{uri: book.imageUrl}}/>
                 <Body>
-                  <Text>{book.data.title}</Text>
-                  <Text note>Antal sånger: {book.data.songs.length}</Text>
+                  <Text>{book.title}</Text>
+                  <Text note>Antal sånger: {book.songs.length}</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -55,7 +55,9 @@ class SongBookDetailsView extends Component {
               </Button>
             </Col>
             <Col>
-              <Button danger iconLeft block>
+              <Button danger iconLeft block onPress={() => {
+                deleteBook(book.url);
+                this.props.navigation.goBack(); }}>
                 <Icon name='md-trash' />
                 <Text> Ta bort </Text>
               </Button>
