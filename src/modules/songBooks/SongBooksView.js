@@ -54,7 +54,9 @@ class SongBooksView extends Component {
     return (
       <Container>
         <Content>
-          <List dataArray={values(books)} renderRow={this.renderRow} />
+          <List dataArray={Object.keys(books).map(
+            url => ({...books[url], url})
+          )} renderRow={this.renderRow} />
         </Content>
         <Fab
             direction='right'
