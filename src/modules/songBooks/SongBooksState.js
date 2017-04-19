@@ -29,6 +29,12 @@ export default function booksState(state = initialState, action = {}) {
         [action.payload.url]: action.payload.data
       };
     }
+    case DELETE_BOOK: {
+      const newState = {...state};
+      delete newState[action.payload];
+
+      return newState;
+    }
     default:
       return state;
   }

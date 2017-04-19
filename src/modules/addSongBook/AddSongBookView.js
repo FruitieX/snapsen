@@ -27,17 +27,18 @@ class AddSongBookView extends Component {
   }
 
   state = {
-    url: 'https://fruitiex.github.io/snapsen/books/template.json'
+    url: 'https://fruitiex.github.io/snapsen/books/template.json',
+    fetchedUrl: ''
   };
 
   render() {
-    const { download, book, loading } = this.props;
+    const {download, add, book, loading} = this.props;
 
     let detailsCard = null;
 
     if (loading) {
       detailsCard = <Spinner />;
-    } else if (book.songs) {
+    } else if (this.state.fetchedUrl && book.songs) {
       detailsCard = (
         <Card>
           <CardItem header>
@@ -56,7 +57,10 @@ class AddSongBookView extends Component {
             </Body>
           </ListItem>
           <CardItem>
-            <Button success disabled={!this.state.url} onPress={() => download(this.state.url)} >
+            <Button success disabled={!this.state.url} onPress={() => add({
+              url: this.state.fetchedUrl,
+              data: book
+            })}>
               <Icon name='add'/>
               <Text>Lägg till mina sångböcker</Text>
             </Button>
@@ -79,7 +83,10 @@ class AddSongBookView extends Component {
               </InputGroup>
             </CardItem>
             <CardItem>
-              <Button info disabled={!this.state.url} onPress={() => download(this.state.url)} >
+              <Button info disabled={!this.state.url} onPress={() => {
+                download(this.state.url);
+                this.setState({fetchedUrl: this.state.url});
+              }}>
                 <Icon name='search'/>
                 <Text>Sök</Text>
               </Button>
