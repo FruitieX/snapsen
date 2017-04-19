@@ -32,7 +32,7 @@ class SongBooksView extends Component {
       onPress={() => this.props.navigation.navigate('SongBookDetails', {book})}
     >
       <Left>
-        <Thumbnail source={{uri: book.data.imageUrl}}/>
+        <Thumbnail source={{uri: book.data.image}}/>
       </Left>
       <Body>
         <Text numberOfLines={1}>{book.data.title}</Text>

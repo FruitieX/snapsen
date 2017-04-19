@@ -46,7 +46,7 @@ class SongsView extends Component {
         })}
       >
         <Left>
-          <Thumbnail source={{uri: book.imageUrl}}/>
+          <Thumbnail source={{uri: book.image}}/>
         </Left>
         <Body>
           <Text numberOfLines={1}>{song.title}</Text>
