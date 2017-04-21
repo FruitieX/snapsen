@@ -18,6 +18,8 @@ import {
   Spinner
 } from 'native-base';
 
+import colors from '../../utils/colors';
+
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
 
@@ -42,8 +44,8 @@ class SongDetailsView extends Component {
 
   render() {
     const {song, book} = this.props;
-    console.log(song, book);
 
+    const badgeColor = colors[song.type] || colors['default'];
     const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
     return (
       <Container>
@@ -56,7 +58,7 @@ class SongDetailsView extends Component {
                 <Body>
                   <Text>{song.title}</Text>
                   <Text note>Från {book.title}, sida: {song.page}</Text>
-                  <Badge primary>
+                  <Badge style={{backgroundColor: badgeColor}}>
                     <Text>{song.type}</Text>
                   </Badge>
                 </Body>

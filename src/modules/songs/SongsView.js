@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import forIn from 'lodash/forIn';
 
+import { View } from 'react-native';
 import {
   Container,
   Content,
   Icon,
+  Card,
+  CardItem,
   Button,
   Body,
   Thumbnail,
+  Badge,
   Left,
   Right,
   Item,
@@ -18,6 +22,8 @@ import {
   Header,
   Title
 } from 'native-base';
+
+import colors from '../../utils/colors';
 
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
@@ -75,7 +81,15 @@ class SongsView extends Component {
   }
 
   render() {
-    const {activateSearch, changeSearch, clearSearch, searchText} = this.props;
+    const {
+      activateSearch,
+      changeSearch,
+      searchText,
+      activateFilter,
+      clearFilters,
+      activeFilter
+    } = this.props;
+
     const {books} = this.props;
 
     let songs = this.getSongsFromBooks(books);
@@ -88,10 +102,20 @@ class SongsView extends Component {
       });
     }
 
+    if (activeFilter) {
+      songs = songs.filter(song => song.type === activeFilter);
+    }
+
+    const types = {};
+
+    songs.forEach(song => (types[song.type] = true));
+
     // daaaaamn react native is sloooooow with long lists, especially in debug mode
     if (__DEV__) {
       songs = songs.slice(0, 20);
     }
+
+    const placeholderSearchText = activeFilter ? `Sök inom "${activeFilter}"` : 'Sök sånger';
 
     const header = searchText === null
       ? (
@@ -111,21 +135,54 @@ class SongsView extends Component {
       ) : (
         <Header searchBar rounded>
           <Left>
-            <Button transparent onPress={clearSearch}>
+            <Button transparent onPress={clearFilters}>
               <Icon name='arrow-back' />
             </Button>
           </Left>
           <Item style={{flex: 4}}>
-            <Input autoFocus placeholder='Sök sånger' value={searchText} onChangeText={changeSearch} />
+            <Input autoFocus placeholder={placeholderSearchText} value={searchText} onChangeText={changeSearch} />
           </Item>
         </Header>
       );
 
+    const body = (searchText === '' && !activeFilter)
+      ? (
+        <Card>
+          <CardItem>
+            <Body>
+              <Text>Sångtyper:</Text>
+              <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
+              { Object.keys(types).map((type, index) => {
+                const color = colors[type] || colors['default'];
+
+                return (
+                  <Button style={{margin: 4, backgroundColor: color}} rounded key={index} onPress={
+                    () => activateFilter(type)
+                  }>
+                    <Text>{type}</Text>
+                  </Button>
+                );
+              })}
+              </View>
+            </Body>
+          </CardItem>
+        </Card>
+      ) : (
+        <List dataArray={songs} renderRow={this.renderRow} />
+      );
+
+    const color = colors[activeFilter] || colors['default'];
+    const displayFilter = activeFilter
+      ? (
+        <Badge primary style={{margin: 8, backgroundColor: color}}><Text>{activeFilter}</Text></Badge>
+      ) : null;
+
     return (
       <Container>
+        { header }
+        { displayFilter }
         <Content>
-          { header }
-          <List dataArray={songs} renderRow={this.renderRow} />
+          { body }
         </Content>
       </Container>
     );
