@@ -41,6 +41,8 @@ class SongsView extends Component {
     const {books} = this.props;
     const book = books[song.url];
 
+    const badgeColor = colors[song.type] || colors['default'];
+
     return (
       <ListItem
         button
@@ -60,6 +62,9 @@ class SongsView extends Component {
         <Body>
           <Text numberOfLines={1}>{song.title}</Text>
           <Text note numberOfLines={1}>{book.title}, sida {song.page}</Text>
+          <Badge style={{backgroundColor: badgeColor}}>
+            <Text>{song.type}</Text>
+          </Badge>
         </Body>
         <Right>
           <Icon name='arrow-forward' />
