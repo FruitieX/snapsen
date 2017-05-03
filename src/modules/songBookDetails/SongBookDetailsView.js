@@ -56,14 +56,6 @@ class SongBookDetailsView extends Component {
             </CardItem>
             <CardItem>
             <Col>
-              <Button success iconLeft block onPress={() => {
-                this.updateSongBook();
-              }}>
-                <Icon name='cloud-download' />
-                <Text> Uppdatera </Text>
-              </Button>
-            </Col>
-            <Col>
               <Button danger iconLeft block onPress={() => {
                 deleteBook(book.url);
                 this.props.navigation.goBack(); }}>
