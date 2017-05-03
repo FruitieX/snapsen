@@ -82,11 +82,6 @@ class SongDetailsView extends Component {
                 <Text note>{song.post}</Text>
               </Body>
             </CardItem>
-
-            <Button transparent textStyle={{color: '#87838B'}}>
-              <Icon name='star' />
-              <Text>1,926 stars</Text>
-            </Button>
           </Card>
         </Content>
       </Container>
