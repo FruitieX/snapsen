@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import forIn from 'lodash/forIn';
 
-import { View } from 'react-native';
+import { Keyboard, View } from 'react-native';
 import {
   Container,
   Content,
@@ -46,10 +46,13 @@ class SongsView extends Component {
         button
         avatar
         key={song.id}
-        onPress={() => this.props.navigation.navigate('SongDetails', {
-          primaryColor: book.primaryColor,
-          song
-        })}
+        onPress={() => {
+          Keyboard.dismiss();
+          this.props.navigation.navigate('SongDetails', {
+            primaryColor: book.primaryColor,
+            song
+          });
+        }}
       >
         <Left>
           <Thumbnail source={{uri: book.image}}/>
@@ -168,7 +171,7 @@ class SongsView extends Component {
           </CardItem>
         </Card>
       ) : (
-        <List dataArray={songs} renderRow={this.renderRow} />
+        <List keyboardShouldPersistTaps='always' dataArray={songs} renderRow={this.renderRow} />
       );
 
     const color = colors[activeFilter] || colors['default'];
@@ -181,7 +184,7 @@ class SongsView extends Component {
       <Container>
         { header }
         { displayFilter }
-        <Content>
+        <Content keyboardShouldPersistTaps='always'>
           { body }
         </Content>
       </Container>
