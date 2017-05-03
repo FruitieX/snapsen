@@ -27,7 +27,7 @@ class AddSongBookView extends Component {
   }
 
   state = {
-    url: 'https://fruitiex.github.io/snapsen/books/template.json',
+    url: '', //'https://fruitiex.github.io/snapsen/books/template.json',
     fetchedUrl: ''
   };
 
