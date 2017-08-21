@@ -1,29 +1,23 @@
-import {loop, combineReducers} from 'redux-loop-symbol-ponyfill';
-import NavigatorStateReducer from '../modules/navigator/NavigatorState';
-import SessionStateReducer, {RESET_STATE} from '../modules/session/SessionState';
+import { combineReducers } from 'redux';
 
-import rest from '../utils/rest';
-import SongDetailsReducer from '../modules/songDetails/SongDetailsState';
-import SongsReducer from '../modules/songs/SongsState';
-import BooksReducer from '../modules/songBooks/SongBooksState';
+// ## Reducer Imports ##
+import navigator from '../state/navigator';
+import counter from '../state/counter';
+import songsView from '../state/songsView';
+import books from '../state/books';
 
-const reducers = {
-  // Navigator states
-  navigatorState: NavigatorStateReducer,
+export default combineReducers({
+  // ## Reducers ##
 
-  session: SessionStateReducer,
-  songDetailsState: SongDetailsReducer,
-  songsState: SongsReducer,
-  books: BooksReducer,
-  ...rest.reducers
-};
+  // Navigator state
+  navigatorState: navigator,
 
-const namespacedReducer = combineReducers(reducers);
+  // Counter state
+  counter,
 
-export default function mainReducer(state, action) {
-  const [nextState, effects] = action.type === RESET_STATE
-    ? namespacedReducer(action.payload, action)
-    : namespacedReducer(state || void 0, action);
+  // Songs view state
+  songsView,
 
-  return loop(nextState, effects);
-}
+  // Stored books
+  books,
+});

@@ -10,12 +10,13 @@ The downside of the Starter Kit architecture is that it involves a number of nov
 
  * [Redux](http://redux.js.org/)
  * [redux-loop](https://github.com/raisemarketplace/redux-loop)
+ * [ImmutableJS](https://facebook.github.io/immutable-js)
 
 The application state and state changes are managed by **Redux**, a library that implements a pure, side-effect-free variant of the Facebook [Flux](https://facebook.github.io/flux/) architecture. Redux and Flux prescribe a unidirectional dataflow through your application. To understand Redux, check out this [Cartoon guide by Lin Clark](https://code-cartoons.com/a-cartoon-guide-to-flux-6157355ab207#.4dpmozm9v) (it's great, not a joke!) and [Dan Abramov's Redux course on egghead.io](https://egghead.io/series/getting-started-with-redux).
 
 Redux helps us with synchronous updating of our state, but it doesn't provide an out-of-the-box solution for handling asynchronous actions. The Redux ecosystem has many possible solutions for this problem. In our application, we use the vanilla redux-thunk middleware for simple asynchronous actions, and **redux-loop** to handle more complex asynchronicity.
 
-The state in Redux applications should never be mutated, but always cloned. TODO: [redux-seamless-immutable](https://www.npmjs.com/package/redux-seamless-immutable)
+The state in Redux applications should never be mutated, but always cloned. To make this more natural for the programmer, and more fault-tolerant against accidental mutation, we use **ImmutableJS** data structures to hold our app's state.
 
 ## Organising code
 
@@ -56,14 +57,18 @@ Let's take a simple example of an application that displays a number, which the 
 
 ```js
 // CounterState.js
+import {Map} from 'immutable';
 
 // INITIAL STATE
 //
-// We start by defining the initial state for this module.
+// We start by defining the initial state for this module. In most cases your
+// module state will be an Immutable.Map. Even if your data is represented as a
+// list, set or a primitive value, it's usually best to wrap it in a Map for
+// maximum flexibility when refactoring your state
 
-const initialState = {
+const initialState = Map({
   value: 0
-};
+});
 
 // ACTION TYPES (Naming: SCREAMING_CASE)
 //
@@ -107,10 +112,7 @@ export function decrement() {
 export default function CounterStateReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_NUMBER:
-      return {
-        ...state,
-        value: state.value + action.payload
-      }
+      return state.update('value', value => value + action.payload);
     default:
       return state;
   }
@@ -182,7 +184,7 @@ Redux `connect()` takes in two arguments, first `mapStateToProps` which selects 
 
 We think using `mapStateToProps` is a good practice, but avoid using `mapActionsToProps` in favour of calling `dispatch` ourselves in the view. In our experience this leads to simpler, easier to reason about code (and a little less verbose PropTypes on the View).
 
-Every time the app state changes, the Container is automatically called with the latest state. If the props returned by the container differ from the previous props, the connected View is re-rendered. If the props are identical, the view is not re-rendered.
+Every time the app state changes, the Container is automatically called with the latest state. If the props returned by the container differ from the previous props, the connected View is re-rendered. If the props are identical, the view is not re-rendered. For this reason it's a good idea to define your props as ImmutableJS data structures or JavaScript primitives, because if you `toJS()` your immutable `Map`s and `Lists` to objects and arrays in the Container, the results of each pass are not referentially equal, and we lose the benefit of this performance optimisation.
 
 Using the Counter example, the container would be very simple:
 

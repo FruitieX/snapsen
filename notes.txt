@@ -1,5 +1,0 @@
-# Joakim's notes for making life easier
-
-# Reversing traffic from device to use local computer as localhost
-adb reverse tcp:3888 tcp:3888
-adb reverse tcp:8081 tcp:8081
