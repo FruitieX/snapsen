@@ -22,10 +22,16 @@ const importBook = book =>
 
 defaultBooks.forEach(importBook);
 
+export const bookImages = {};
+defaultBooks.forEach(
+  book =>
+    (bookImages[book.url] = (
+      <Image source={book.image} style={{ height: 40, width: 40 }} />
+    )),
+);
+
 const initialState = {};
 defaultBooks.forEach(book => (initialState[book.url] = book));
-
-export const bookImages = {};
 
 export default createReducer(
   {
@@ -34,17 +40,6 @@ export default createReducer(
       const newState = { ...state };
       delete newState[book.url];
       return newState;
-    },
-    '@@INIT': state => {
-      // TODO: this is a little bit awful to do in here
-      Object.entries(state).forEach(
-        ([bookName, book]) =>
-          (bookImages[bookName] = (
-            <Image source={book.image} style={{ height: 40, width: 40 }} />
-          )),
-      );
-
-      return state;
     },
   },
   initialState,

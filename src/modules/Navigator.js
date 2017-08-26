@@ -62,38 +62,48 @@ const DrawerNavigatorConfig = {
     </Drawer>,
 };
 
-const canNavigateBack = navigation => {
-  if (['Songs', 'SongBooks', 'Settings'].includes(navigation.state.routeName)) {
-    return false;
-  }
+class Header extends React.Component {
+  canNavigateBack = () => {
+    if (
+      ['Songs', 'SongBooks', 'Settings'].includes(
+        this.props.currentNavigation.state.routeName,
+      )
+    ) {
+      return false;
+    }
 
-  return true;
-};
+    return true;
+  };
 
-const headerOnLeftPress = navigation => {
-  if (canNavigateBack(navigation)) {
-    navigation.goBack();
-  } else {
-    navigation.navigate('DrawerOpen');
-  }
-};
+  headerOnLeftPress = () => {
+    if (this.canNavigateBack()) {
+      this.props.currentNavigation.goBack();
+    } else {
+      this.props.currentNavigation.navigate('DrawerOpen');
+    }
+  };
 
-const headerLeftElement = navigation =>
-  canNavigateBack(navigation) ? 'arrow-back' : 'menu';
+  headerLeftElement = () => (this.canNavigateBack() ? 'arrow-back' : 'menu');
+
+  getTitle = () =>
+    this.props.getScreenDetails(this.props.scene).options.title ||
+    this.props.currentNavigation.state.routeName;
+
+  render = () =>
+    <Toolbar
+      onLeftElementPress={this.headerOnLeftPress}
+      leftElement={this.headerLeftElement()}
+      centerElement={this.getTitle()}
+      searchable={{
+        autoFocus: true,
+        placeholder: 'Search',
+      }}
+    />;
+}
 
 const StackNavigatorConfig = {
   navigationOptions: ({ navigation }) => ({
-    header: (
-      <Toolbar
-        onLeftElementPress={() => headerOnLeftPress(navigation)}
-        leftElement={headerLeftElement(navigation)}
-        centerElement={navigation.state.routeName}
-        searchable={{
-          autoFocus: true,
-          placeholder: 'Search',
-        }}
-      />
-    ),
+    header: props => <Header currentNavigation={navigation} {...props} />,
   }),
 };
 
@@ -102,7 +112,10 @@ const StackNavigatorConfig = {
 const SongsNavigator = StackNavigator(
   {
     Songs: { screen: SongsView },
-    SongDetails: { screen: SongDetailsView },
+    SongDetails: {
+      screen: SongDetailsView,
+      navigationOptions: { title: 'Info' },
+    },
   },
   StackNavigatorConfig,
 );

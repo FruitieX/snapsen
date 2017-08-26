@@ -62,27 +62,10 @@ class SongsView extends Component {
 
   renderItem = ({ item }) =>
     <SongItem
-      books={this.props.books}
+      book={this.props.books[item.bookUrl]}
       song={item}
       onPress={this.onPressSong}
     />;
-
-  /*
-  getSongsFromBooks = books => {
-    let songs = [];
-
-    forIn(books, (book, url) => {
-      const newSongs = book.songs.map(song => ({
-        ...song,
-        url,
-      }));
-
-      songs = [...songs, ...newSongs];
-    });
-
-    return songs;
-  };
-  */
 
   getSongsFromBooks = books =>
     Object.entries(books).reduce((songs, [bookName, book]) => {

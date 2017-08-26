@@ -19,23 +19,34 @@ import {
   NoteField,
 } from '../../components/styled';
 import SongItem from '../../components/SongItem';
+import colors from '../../utils/colors';
+import { setNote } from '../../state/notes';
 
 import { connect } from 'react-redux';
 
-const mapStateToProps = (state, ownProps) => ({
-  song: {
-    ...ownProps.navigation.state.params.song,
-  },
-  books: state.books,
+const mapStateToProps = (state, ownProps) => {
+  const song = ownProps.navigation.state.params.song;
+  const book = state.books[song.bookUrl];
+
+  return {
+    song,
+    book,
+    note: state.notes[`${book.id}/${song.id}`],
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  setNote: note => dispatch(setNote(note)),
 });
-import colors from '../../utils/colors';
 
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
 
 class DetailField extends React.Component {
+  openURL = () => Linking.openURL(this.props.url);
+
   render = () => {
-    const { icon, title, value, ...rest } = this.props;
+    const { icon, title, value, url, ...rest } = this.props;
 
     if (!value) return null;
 
@@ -47,6 +58,7 @@ class DetailField extends React.Component {
           secondaryText: String(value),
         }}
         numberOfLines={'dynamic'}
+        onPress={url && this.openURL}
         {...rest}
       />
     );
@@ -69,7 +81,7 @@ class SongDetails extends React.Component {
   openLink = link => Linking.openURL(link);
 
   render() {
-    const { song, books } = this.props;
+    const { song, book } = this.props;
 
     const badgeColor = colors[song.type] || colors['default'];
 
@@ -78,7 +90,7 @@ class SongDetails extends React.Component {
       <KeyboardAvoidingView keyboardVerticalOffset={100} behavior="padding">
         <ScrollView>
           <Card>
-            <SongItem song={song} books={books} onPress={() => null} />
+            <SongItem song={song} book={book} />
 
             <Padding>
               <PreLyrics>
@@ -101,17 +113,14 @@ class SongDetails extends React.Component {
               title="Melody"
               value={song.melody}
               rightElement="arrow-forward"
-              onPress={() =>
-                this.openLink(
-                  `https://www.youtube.com/results?search_query=${song.melody}`,
-                )}
+              url={`https://www.youtube.com/results?search_query=${song.melody}`}
             />
             <DetailField
               icon="volume-up"
               title="Example"
               value={song.example}
               rightElement="arrow-forward"
-              onPress={() => this.openLink(song.example)}
+              url={song.example}
             />
             <DetailField
               icon="music-note"
@@ -132,7 +141,15 @@ class SongDetails extends React.Component {
               title="Notes"
               value="You can write personal notes for the song here:"
             />
-            <NoteField />
+            <NoteField
+              onChangeText={text =>
+                this.props.setNote({
+                  song,
+                  book,
+                  text,
+                })}
+              value={this.props.note}
+            />
           </Card>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -140,4 +157,4 @@ class SongDetails extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(SongDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(SongDetails);

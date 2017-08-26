@@ -44,9 +44,7 @@ export default class SongItem extends React.PureComponent {
     */
 
   render = () => {
-    const { song, books } = this.props;
-    const book = books[song.bookUrl];
-
+    const { song, book } = this.props;
     const badgeColor = colors[song.type] || colors['default'];
 
     return (
@@ -58,7 +56,7 @@ export default class SongItem extends React.PureComponent {
           secondaryText: `${book.title}: p. ${song.page}`,
           tertiaryText: song.type.join(', '),
         }}
-        onPress={this.handlePress}
+        onPress={this.props.onPress && this.handlePress}
       />
     );
 
