@@ -8,9 +8,9 @@ import {
 } from 'react-navigation';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { Toolbar, Drawer, Avatar, COLOR } from 'react-native-material-ui';
 
-import { StatusBarPadding } from '../components/styled';
+import Header from './Header';
+import Drawer from './Drawer';
 
 // ## View imports ##
 import SongsView from './views/Songs';
@@ -21,115 +21,8 @@ import SettingsView from './views/Settings';
 
 const DrawerNavigatorConfig = {
   drawerWidth: 300,
-  contentComponent: props =>
-    <Drawer>
-      <Drawer.Header
-        style={{
-          contentContainer: {
-            backgroundColor: COLOR.brown300,
-          },
-        }}
-      >
-        {/* <Drawer.Header.Account
-          avatar={<Avatar text={'A'} />}
-          footer={{
-            dense: true,
-            centerElement: {
-              primaryText: 'Reservio',
-              secondaryText: 'business@email.com',
-            },
-            rightElement: 'arrow-drop-down',
-          }}
-        /> */}
-      </Drawer.Header>
-      <Drawer.Section
-        divider
-        items={[
-          {
-            icon: 'music-note',
-            value: 'Songs',
-            active: props.activeItemKey === 'SongsNavigator',
-            onPress: () => props.navigation.navigate('SongsNavigator'),
-          },
-          {
-            icon: 'book',
-            value: 'Songbooks',
-            active: props.activeItemKey === 'BooksNavigator',
-            onPress: () => props.navigation.navigate('BooksNavigator'),
-          },
-        ]}
-      />
-      <Drawer.Section
-        items={[
-          {
-            icon: 'settings',
-            value: 'Settings',
-            active: props.activeItemKey === 'SettingsNavigator',
-            onPress: () => props.navigation.navigate('SettingsNavigator'),
-          },
-        ]}
-      />
-    </Drawer>,
+  contentComponent: props => <Drawer {...props} />,
 };
-
-class Header extends React.Component {
-  canNavigateBack = () => {
-    if (
-      ['Songs', 'Books', 'Settings'].includes(
-        this.props.currentNavigation.state.routeName,
-      )
-    ) {
-      return false;
-    }
-
-    return true;
-  };
-
-  headerOnLeftPress = () => {
-    if (this.canNavigateBack()) {
-      this.props.currentNavigation.goBack();
-    } else {
-      this.props.currentNavigation.navigate('DrawerOpen');
-    }
-  };
-
-  headerLeftElement = () => (this.canNavigateBack() ? 'arrow-back' : 'menu');
-
-  getTitle = () =>
-    this.props.getScreenDetails(this.props.scene).options.title ||
-    this.props.currentNavigation.state.routeName;
-
-  render = () => {
-    const params = this.props.currentNavigation.state.params;
-    const backgroundColor =
-      params && params.primaryColor ? params.primaryColor : COLOR.brown300;
-    const secondaryColor =
-      params && params.secondaryColor ? params.secondaryColor : COLOR.white;
-
-    return (
-      <View>
-        <StatusBarPadding backgroundColor={backgroundColor} />
-        {/* <StatusBar backgroundColor={backgroundColor} /> */}
-        <Toolbar
-          onLeftElementPress={this.headerOnLeftPress}
-          leftElement={this.headerLeftElement()}
-          centerElement={this.getTitle()}
-          isSearchActive={this.props.searchText}
-          searchable={{
-            autoFocus: true,
-            placeholder: 'Search',
-            onSearchPressed: this.props.activateSearch,
-            onChangeText: this.props.changeSearch,
-          }}
-          style={{
-            container: { backgroundColor },
-            titleText: { color: secondaryColor },
-          }}
-        />
-      </View>
-    );
-  };
-}
 
 const StackNavigatorConfig = {
   navigationOptions: ({ navigation }) => ({
