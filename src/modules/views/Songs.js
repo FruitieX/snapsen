@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import forIn from 'lodash/forIn';
 
-import { FlatList, Keyboard, View } from 'react-native';
+import { FlatList, Keyboard, KeyboardAvoidingView, View } from 'react-native';
 import {
   Container,
   Content,
@@ -108,9 +108,14 @@ class SongsView extends Component {
   songKeyExtractor = song => song;
 
   renderSongList = songs =>
-    <FlatList data={songs} renderItem={this.renderItem} />;
+    <KeyboardAvoidingView keyboardVerticalOffset={80} behavior="padding">
+      <FlatList data={songs} renderItem={this.renderItem} />
+    </KeyboardAvoidingView>;
 
-  render = () => this.renderSongList(this.getSongsFromBooks(this.props.books));
+  render = () =>
+    this.renderSongList(
+      this.filterSongs(this.getSongsFromBooks(this.props.books)),
+    );
   /*
   render = () => {
     const {

@@ -66,7 +66,7 @@ class SongDetails extends React.Component {
 
     //const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
     return (
-      <KeyboardAvoidingView keyboardVerticalOffset={100} behavior="padding">
+      <KeyboardAvoidingView keyboardVerticalOffset={80} behavior="padding">
         <ScrollView>
           <Card>
             <SongItem song={song} book={book} />
@@ -105,6 +105,17 @@ class SongDetails extends React.Component {
               icon="music-note"
               title="Key"
               value={song.musicalKey}
+            />
+            <DetailField
+              icon="library-books"
+              title="Songbook"
+              value={book.title}
+            />
+            <DetailField icon="book" title="Page" value={song.page} />
+            <DetailField
+              icon="filter-list"
+              title="Type"
+              value={song.type.join(', ')}
             />
             <DetailField
               icon="description"
