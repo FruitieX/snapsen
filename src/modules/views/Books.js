@@ -24,7 +24,11 @@ const mapDispatchToProps = dispatch => ({
 class BooksView extends Component {
   onPressBook = book => {
     Keyboard.dismiss();
-    this.props.navigation.navigate('BookDetails', { book });
+    this.props.navigation.navigate('BookDetails', {
+      book,
+      primaryColor: book.primaryColor,
+      secondaryColor: book.secondaryColor,
+    });
   };
 
   renderItem = ({ item }) =>

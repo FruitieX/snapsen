@@ -16,7 +16,12 @@ export default class BookItem extends React.PureComponent {
     return (
       <ListItem
         divider
-        leftElement={<Avatar image={bookImages[book.url]} />}
+        leftElement={
+          <Avatar
+            image={bookImages[book.url]}
+            style={{ container: { backgroundColor: 'transparent' } }}
+          />
+        }
         centerElement={{
           primaryText: book.title,
           secondaryText: `${book.description}`,

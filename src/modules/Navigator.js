@@ -101,8 +101,10 @@ class Header extends React.Component {
 
   render = () => {
     const params = this.props.currentNavigation.state.params;
-    const backgroundColor = params ? params.primaryColor : COLOR.brown300;
-    const secondaryColor = params ? params.secondaryColor : COLOR.white;
+    const backgroundColor =
+      params && params.primaryColor ? params.primaryColor : COLOR.brown300;
+    const secondaryColor =
+      params && params.secondaryColor ? params.secondaryColor : COLOR.white;
 
     return (
       <View>
