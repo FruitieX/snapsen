@@ -3,6 +3,7 @@
   "id": "template",
   "description": "This is a test songbook to demonstrate what fields a Snapsen songbook can use.",
   "primaryColor": "#000000",
+  "secondaryColor": "#777777",
   "versions": {
     "book": 1,
     "snapsen": 1

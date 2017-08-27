@@ -3,6 +3,7 @@
   "id": "lauluwiki",
   "description": "Imported songs from Otaniemi Lauluwiki at http://lauluwiki.otaniemi.info.",
   "primaryColor": "#6d6d6d",
+  "secondaryColor": "#ffffff",
   "versions": {
     "book": 1,
     "snapsen": 1

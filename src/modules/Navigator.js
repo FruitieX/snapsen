@@ -6,9 +6,11 @@ import {
   NavigationActions,
   addNavigationHelpers,
 } from 'react-navigation';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
-import { Toolbar, Drawer, Avatar } from 'react-native-material-ui';
+import { Toolbar, Drawer, Avatar, COLOR } from 'react-native-material-ui';
+
+import { StatusBarPadding } from '../components/styled';
 
 // ## View imports ##
 import SongsView from './views/Songs';
@@ -21,7 +23,13 @@ const DrawerNavigatorConfig = {
   drawerWidth: 300,
   contentComponent: props =>
     <Drawer>
-      <Drawer.Header>
+      <Drawer.Header
+        style={{
+          contentContainer: {
+            backgroundColor: COLOR.brown300,
+          },
+        }}
+      >
         {/* <Drawer.Header.Account
           avatar={<Avatar text={'A'} />}
           footer={{
@@ -91,16 +99,34 @@ class Header extends React.Component {
     this.props.getScreenDetails(this.props.scene).options.title ||
     this.props.currentNavigation.state.routeName;
 
-  render = () =>
-    <Toolbar
-      onLeftElementPress={this.headerOnLeftPress}
-      leftElement={this.headerLeftElement()}
-      centerElement={this.getTitle()}
-      searchable={{
-        autoFocus: true,
-        placeholder: 'Search',
-      }}
-    />;
+  render = () => {
+    const params = this.props.currentNavigation.state.params;
+    const backgroundColor = params ? params.primaryColor : COLOR.brown300;
+    const secondaryColor = params ? params.secondaryColor : COLOR.white;
+
+    return (
+      <View>
+        <StatusBarPadding backgroundColor={backgroundColor} />
+        {/* <StatusBar backgroundColor={backgroundColor} /> */}
+        <Toolbar
+          onLeftElementPress={this.headerOnLeftPress}
+          leftElement={this.headerLeftElement()}
+          centerElement={this.getTitle()}
+          isSearchActive={this.props.searchText}
+          searchable={{
+            autoFocus: true,
+            placeholder: 'Search',
+            onSearchPressed: this.props.activateSearch,
+            onChangeText: this.props.changeSearch,
+          }}
+          style={{
+            container: { backgroundColor },
+            titleText: { color: secondaryColor },
+          }}
+        />
+      </View>
+    );
+  };
 }
 
 const StackNavigatorConfig = {

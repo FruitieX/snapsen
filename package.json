@@ -1,21 +1,14 @@
 {
-  "name": "PepperoniAppTemplate",
-  "author": "Futurice",
-  "description": "React Native App Starter Kit for Android and iOS",
+  "name": "Snapsen",
+  "author": "FruitieX",
+  "description": "Snapsen is a digital songbook app",
   "license": "MIT",
-  "homepage": "http://getpepperoni.com",
-  "bugs": "https://github.com/futurice/pepperoni-app-kit/issues",
+  "homepage": "https://github.com/FruitieX/snapsen",
+  "bugs": "https://github.com/FruitieX/snapsen/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/futurice/pepperoni-app-kit"
+    "url": "https://github.com/FruitieX/snapsen"
   },
-  "keywords": [
-    "React Native",
-    "Starter Kit",
-    "Bitrise",
-    "Redux",
-    "Auth0"
-  ],
   "version": "1.0.0",
   "private": true,
   "devDependencies": {

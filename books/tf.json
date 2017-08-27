@@ -3,6 +3,7 @@
   "id": "teknologforeningen-nya",
   "description": "Teknologföreningens nya sångbok.",
   "primaryColor": "#b20839",
+  "secondaryColor": "#ffffff",
   "versions": {
     "book": 1,
     "snapsen": 1
@@ -65,7 +66,7 @@
     {
       "title": "O, gamla klang och jubeltid",
       "page": 10,
-      "lyrics": "O, gamla klang och jubeltid,\nditt minne skall förbliva,\noch än åt livets bistra strid\nett rosigt skimmer giva.\nSnart tystnar allt vårt yra skämt,\nvår sång blir stum, vårt glam förstämt;\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\n\nVar äro de som kunde allt,\nblott ej sin ära svika,\nsom voro män av äkta halt\noch världens herrar lika?\nDe drogo bort från vin och sång\ntill vardagslivets tråk och tvång;\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\n<i>filosofer:</i>Den ene vetenskap och vett\nin i scholares mänger,\n<i>jurister:</i>den andre i sitt anlets svett\npå paragrafer vränger,\n<i>teologer:</i>en plåstrar själen som är skral,\n<i>medicinare:</i>en lappar hop dess trasiga fodral;\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\n<i>väg- och vatten:</i>En tämjer forsens vilda fall,\n<i>fabrikare:</i>En annan ger oss papper,\n<i>maskin:</i>En idkar maskinistens kall\n<i>elektrotekniker:</i>En mästrar volt så tapper\n<i>arkit. och lantmät:</i>En ritar hus, en mäter mark\n<i>kemister:</i>En blandar till mixtur så stark\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\n\nMen hjärtat i en sann student\nkan ingen tid förfrysa.\nDen glädjeeld, som där han tänt,\nhans hela liv skall lysa.\nDet gamla skalet brustit har,\nmen kärnan finnes frisk dock kvar,\n//: och vad han än må mista,\nden skall dock aldrig brista. ://\n\nSå sluten, bröder, fast vår krets\ntill glädjens värn och ära!\nTrots allt vi tryggt och väl tillfreds\nvår vänskap trohet svära.\nLyft bägarn högt och klinga, vän!\nDe gamla gudar leva än\n//: bland skålar och pokaler,\nbland skålar och pokaler! ://",
+      "lyrics": "O, gamla klang och jubeltid,\nditt minne skall förbliva,\noch än åt livets bistra strid\nett rosigt skimmer giva.\nSnart tystnar allt vårt yra skämt,\nvår sång blir stum, vårt glam förstämt;\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\n\nVar äro de som kunde allt,\nblott ej sin ära svika,\nsom voro män av äkta halt\noch världens herrar lika?\nDe drogo bort från vin och sång\ntill vardagslivets tråk och tvång;\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\nfilosofer:Den ene vetenskap och vett\nin i scholares mänger,\njurister:den andre i sitt anlets svett\npå paragrafer vränger,\nteologer:en plåstrar själen som är skral,\nmedicinare:en lappar hop dess trasiga fodral;\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\nväg- och vatten:En tämjer forsens vilda fall,\nfabrikare:En annan ger oss papper,\nmaskin:En idkar maskinistens kall\nelektrotekniker:En mästrar volt så tapper\narkit. och lantmät:En ritar hus, en mäter mark\nkemister:En blandar till mixtur så stark\n//: o, jerum, jerum, jerum,\no, quae mutatio rerum! ://\n\nMen hjärtat i en sann student\nkan ingen tid förfrysa.\nDen glädjeeld, som där han tänt,\nhans hela liv skall lysa.\nDet gamla skalet brustit har,\nmen kärnan finnes frisk dock kvar,\n//: och vad han än må mista,\nden skall dock aldrig brista. ://\n\nSå sluten, bröder, fast vår krets\ntill glädjens värn och ära!\nTrots allt vi tryggt och väl tillfreds\nvår vänskap trohet svära.\nLyft bägarn högt och klinga, vän!\nDe gamla gudar leva än\n//: bland skålar och pokaler,\nbland skålar och pokaler! ://",
       "type": ["Akademisk Sång"],
       "id": "o,-gamla-klang-och-jubeltid",
       "melody": "O alte Burschenherrlichkeit",
@@ -83,7 +84,7 @@
     {
       "title": "Teknologvisan",
       "page": 16,
-      "lyrics": "Här ska ni se ett schack\nsom aldrig tappar takt, faderalla.\nTeknologer vi äro allihop,\nmed vin och kvinnor vi stå på en förtrolig fot.\nMed tofs i mössan och sticka* i vår hand,\njobba vi flitigt\ndock helst uti ett vingårdsland.\nPå exkursioner och fester e’ vi med.\nTeolog e’ man ej\noch vi tacka vår lycka för de’.\n//: Var teknolog\nhan är en vingårdens man.\nVarhelst i staden man såg\nja där rantar han,\nfaderampampampampampam **\nLustgårdens frukt,\nden plockar han\nmed vana händer. ***\nKorta krikon, långa krikon,\ntjocka krikon, trånga krikon\nplockar han med lust\noch ett i sänder. ://\n<i>1 2 3</i>HEJ!",
+      "lyrics": "Här ska ni se ett schack\nsom aldrig tappar takt, faderalla.\nTeknologer vi äro allihop,\nmed vin och kvinnor vi stå på en förtrolig fot.\nMed tofs i mössan och sticka* i vår hand,\njobba vi flitigt\ndock helst uti ett vingårdsland.\nPå exkursioner och fester e’ vi med.\nTeolog e’ man ej\noch vi tacka vår lycka för de’.\n//: Var teknolog\nhan är en vingårdens man.\nVarhelst i staden man såg\nja där rantar han,\nfaderampampampampampam **\nLustgårdens frukt,\nden plockar han\nmed vana händer. ***\nKorta krikon, långa krikon,\ntjocka krikon, trånga krikon\nplockar han med lust\noch ett i sänder. ://\n1 2 3HEJ!",
       "type": ["Teknologvisa"],
       "id": "teknologvisan",
       "melody": "Kungl. Södermanlands regementes march",
@@ -164,7 +165,7 @@
     {
       "title": "Finska halvan",
       "page": 29,
-      "lyrics": "Hur länge skall på borden\nden lilla halvan stå?\nSkall snart ej höras orden:\n“Låt halvan gå, låt gå.”\nDet ärvda vikingasinne\ntill bägar’n trår igen,\n//:\n<i>solo:</i>Halvan går.\n<i>alla:</i>Halvan går.\n<i>solo:</i>Låt halvan gå!\n<i> alla:</i>Halvan går. ://\nSkål, gutår!",
+      "lyrics": "Hur länge skall på borden\nden lilla halvan stå?\nSkall snart ej höras orden:\n“Låt halvan gå, låt gå.”\nDet ärvda vikingasinne\ntill bägar’n trår igen,\n//:\nsolo:Halvan går.\nalla:Halvan går.\nsolo:Låt halvan gå!\n alla:Halvan går. ://\nSkål, gutår!",
       "type": ["Snapsvisa"],
       "id": "finska-halvan",
       "melody": "Gute Nacht",
@@ -211,7 +212,7 @@
     {
       "title": "Korta halvan",
       "page": 33,
-      "lyrics": "Så länge helan vi få,\nvi vill ha halvan därpå,\nför att få fjärmas en stund\nifrån vardagen grå.\n\nFör tar man en tar man två,\nlåt själen dansa, låt gå.\nAv alla tretton vi kommit\nblott till nummer två.\n<i>solo I:</i>Vem har sagt,\natt just du\nspyr på värden?\n<i>solo II:\n</i>Jag önskar lycka\noch välgång\npå färden.\n\nFör tar man en...",
+      "lyrics": "Så länge helan vi få,\nvi vill ha halvan därpå,\nför att få fjärmas en stund\nifrån vardagen grå.\n\nFör tar man en tar man två,\nlåt själen dansa, låt gå.\nAv alla tretton vi kommit\nblott till nummer två.\nsolo I:Vem har sagt,\natt just du\nspyr på värden?\nsolo II:\nJag önskar lycka\noch välgång\npå färden.\n\nFör tar man en...",
       "type": ["Snapsvisa"],
       "id": "korta-halvan",
       "melody": "Så länge skutan kan gå",
@@ -752,7 +753,7 @@
     {
       "title": "Jäsa, jäsa",
       "page": 73,
-      "lyrics": "Jäsa, jäsa brännvin,\nvem skall brygden dricka?\nSvakar säger inte nej -\nvad säger Svakars flicka?\n<i>avec piper:</i>Fy fan,\n\nfy fan,\njag får sån jävla hicka.",
+      "lyrics": "Jäsa, jäsa brännvin,\nvem skall brygden dricka?\nSvakar säger inte nej -\nvad säger Svakars flicka?\navec piper:Fy fan,\n\nfy fan,\njag får sån jävla hicka.",
       "type": ["Snapsvisa"],
       "id": "jäsa,-jäsa",
       "melody": "Skära, skära havre",
@@ -1177,7 +1178,7 @@
     {
       "title": "The BASIC sång",
       "page": 100,
-      "lyrics": "LET oss nu fatta i våra glas\n<i>20</i>INPUT en klunk utav det som där has\n<i>30</i>IF du fått nog THEN till 50 min vän\n<i>40</i>ELSE GOTO-baka till 10 igen\n<i>50</i>END",
+      "lyrics": "LET oss nu fatta i våra glas\n20INPUT en klunk utav det som där has\n30IF du fått nog THEN till 50 min vän\n40ELSE GOTO-baka till 10 igen\n50END",
       "type": ["Snapsvisa"],
       "id": "the-basic-sång",
       "melody": "Mors lilla Olle10",
@@ -1204,7 +1205,7 @@
     {
       "title": "Gör mig till finlandssvensk",
       "page": 102,
-      "lyrics": "För att va’ svensk krävs inte mycket,\nej någon särskild karaktär.\nTig bara stilla som en jycke\nför inget svårmod får det finnas där.\n<i>Refräng 1:\n</i>Gör mig till finlandssvensk,\njag vill va’ halvutländsk\noch få va’ full på jobbet varje dag.\nDå får man slåss med kniv\noch ingen man med HIV\nhar gjort det farligt att små flickor ta.\n\nGå på IKEA ger mig ångest,\nSven-Bertil Taube ger allergi.\nI Sverige finns det bara kräftpest.\nMen i tusen sjöars land kan jag bli fri!\n<i>Refräng 2:\n</i>Gör mig till finlandssvensk,\njag vill va’ halvutländsk,\noch köra bil som bara Mika kan.\nKunna få vara tyst\noch ändå ratta byst,\nfå prata svenska - men ändå va’ man.",
+      "lyrics": "För att va’ svensk krävs inte mycket,\nej någon särskild karaktär.\nTig bara stilla som en jycke\nför inget svårmod får det finnas där.\nRefräng 1:\nGör mig till finlandssvensk,\njag vill va’ halvutländsk\noch få va’ full på jobbet varje dag.\nDå får man slåss med kniv\noch ingen man med HIV\nhar gjort det farligt att små flickor ta.\n\nGå på IKEA ger mig ångest,\nSven-Bertil Taube ger allergi.\nI Sverige finns det bara kräftpest.\nMen i tusen sjöars land kan jag bli fri!\nRefräng 2:\nGör mig till finlandssvensk,\njag vill va’ halvutländsk,\noch köra bil som bara Mika kan.\nKunna få vara tyst\noch ändå ratta byst,\nfå prata svenska - men ändå va’ man.",
       "type": ["Snapsvisa"],
       "id": "gör-mig-till-finlandssvensk",
       "melody": "Those Were the Days (något modifierad)",
@@ -1258,7 +1259,7 @@
     {
       "title": "Jag var full en gång",
       "page": 106,
-      "lyrics": "Jag var full en gång för länge sen,\npå knäna kröp jag hem\nvarje dike var för mig ett vilohem.\nI varje hörn, i varje vrå\nhade jag en liten vän\nifrån renat upp till nittiosex procent.\n\nJag var full en gång för länge sen\npå knäna kröp jag hem\noch som sällskap hade jag en elefant.\nElefanten spruta vatten\noch jag trodde det var öl\nsedan dess har alla kallat mig för knöl.\n<i>musik: Hugo Lindh* Andra versen kan sjungas eller upprepas med\nrimmet</i>öl - knöl\n<i>utbytt mot</i>vin - svin\n<i>eller</i>sprit - skit",
+      "lyrics": "Jag var full en gång för länge sen,\npå knäna kröp jag hem\nvarje dike var för mig ett vilohem.\nI varje hörn, i varje vrå\nhade jag en liten vän\nifrån renat upp till nittiosex procent.\n\nJag var full en gång för länge sen\npå knäna kröp jag hem\noch som sällskap hade jag en elefant.\nElefanten spruta vatten\noch jag trodde det var öl\nsedan dess har alla kallat mig för knöl.\nmusik: Hugo Lindh* Andra versen kan sjungas eller upprepas med\nrimmetöl - knöl\nutbytt motvin - svin\nellersprit - skit",
       "type": ["Snapsvisa"],
       "id": "jag-var-full-en-gång",
       "melody": "Flottarkärlek",
@@ -1313,7 +1314,7 @@
     {
       "title": "Kalla små nubbar",
       "page": 109,
-      "lyrics": "Vad är det som gör att en skojare trivs?\n<i>alla:</i>Jo, kalla, kalla, kalla, kalla små nubbar.\n<i>solo:</i>Vad är det som först uppå festen väl givs?\n<i>alla:</i>Jo, kalla, kalla, kalla, kalla små nubbar.\n<i>solo:</i>Dom skänker oss alla ett solljust humör och\näven för kroppen stor nytta dom gör.\nMen ska man ta nubbar som regel dom bör\nva’ kalla,\n<i>alla:</i>Mycket kalla,\n<i>solo:</i>Ja, kalla,\n<i>alla:</i>Mycket kalla,\nJa, kalla, kalla, kalla, kalla små nubbar.\n<i>solo:</i>Vi sjunger och dansar, tar ton och ger hals\n<i>alla:</i>för kalla, kalla, kalla, kalla små nubbar.\n<i>solo:</i>Att nubben är dyr, det gör ingenting alls\n<i>alla:</i>för kalla, kalla, kalla, kalla små nubbar.\n<i>solo:</i>Dom älskar vi dricka på glada kalas\noch immiga står dom uti våra glas.\nOch nu denna kväll ska gemensamt här tas\nsmå kalla!\n<i>alla:</i>Vilka kalla?\n<i>solo:</i>Jo kalla!\n<i>alla:</i>Vilka kalla?\nJo, kalla, kalla, kalla, kalla små nubbar.",
+      "lyrics": "Vad är det som gör att en skojare trivs?\nalla:Jo, kalla, kalla, kalla, kalla små nubbar.\nsolo:Vad är det som först uppå festen väl givs?\nalla:Jo, kalla, kalla, kalla, kalla små nubbar.\nsolo:Dom skänker oss alla ett solljust humör och\näven för kroppen stor nytta dom gör.\nMen ska man ta nubbar som regel dom bör\nva’ kalla,\nalla:Mycket kalla,\nsolo:Ja, kalla,\nalla:Mycket kalla,\nJa, kalla, kalla, kalla, kalla små nubbar.\nsolo:Vi sjunger och dansar, tar ton och ger hals\nalla:för kalla, kalla, kalla, kalla små nubbar.\nsolo:Att nubben är dyr, det gör ingenting alls\nalla:för kalla, kalla, kalla, kalla små nubbar.\nsolo:Dom älskar vi dricka på glada kalas\noch immiga står dom uti våra glas.\nOch nu denna kväll ska gemensamt här tas\nsmå kalla!\nalla:Vilka kalla?\nsolo:Jo kalla!\nalla:Vilka kalla?\nJo, kalla, kalla, kalla, kalla små nubbar.",
       "type": ["Snapsvisa"],
       "id": "kalla-små-nubbar",
       "melody": "Kalle på spångensolo:",
@@ -1450,7 +1451,7 @@
     {
       "title": "Fredmans epistel nr 82",
       "page": 126,
-      "lyrics": "Vila vid denna källa,\nVår lilla frukost vi framställa:\nRött vin med pimpinella\nOch en nyss skjuten beckasin.\nKlang, vad buteljer, Ulla!\nI våra korgar, överst fulla,\nTömda i gräset rulla,\nOch känn vad ångan dunstar fin,\nDitt middags vin\nSku vi ur krusen hälla\nMed glättig min.\nVila vid denna källa,\nHör våra valthorns klang, cousine.\n<i>- - - Corno con bocca chiusa - - -\n</i>Valthornens klang, cousine!",
+      "lyrics": "Vila vid denna källa,\nVår lilla frukost vi framställa:\nRött vin med pimpinella\nOch en nyss skjuten beckasin.\nKlang, vad buteljer, Ulla!\nI våra korgar, överst fulla,\nTömda i gräset rulla,\nOch känn vad ångan dunstar fin,\nDitt middags vin\nSku vi ur krusen hälla\nMed glättig min.\nVila vid denna källa,\nHör våra valthorns klang, cousine.\n- - - Corno con bocca chiusa - - -\nValthornens klang, cousine!",
       "pre": "Eller oförmodade avsked, förkunnat vid Ulla Winblads\nfrukost en sommarmorgon i det gröna.",
       "type": ["Vinvisa"],
       "id": "fredmans-epistel-nr-82",
@@ -1477,7 +1478,7 @@
     {
       "title": "Frippes vinvisa",
       "page": 128,
-      "lyrics": "Ett litet glas rödvin mot flunssan.\nFörbannat så härlig bouquet!\nNär ungdomen hånglas i Brunssan\när minnena här ska ni se.\n\nBatong och vin, rojsigt fint,\nvi skålar med glasen i klang\nCHAMPAGNE!\nEn kväll på stan, sidu på fan\ndet är ju Spitu i sin nya BMW, cabriolet.\n\nMed musslor och vin på Hangö västra\ni vår Nyländer Yacht ’45\nMed Gusi vi havet bemästra\ndet mojnar och snart styr vi hem.\n\nBatong ...\n\nVi tar å shoppar lite potis från Hallen,\nvi kör en brekkare med potatis och sill\n<i>pipigt:</i>Å har ni hört att Missen har skiljt sig från Nallen?\nÅ Brassen har fått en kläpp till (ÅTER)\n\nBatong och vin, rojsigt fint\nvi skålar med glasen i klang\nCHAMPAGNE!\nEn kväll på stan, sidu på fan\nDet är ju Gusi som kommer, så skoj\nSIDU MOJ’N!",
+      "lyrics": "Ett litet glas rödvin mot flunssan.\nFörbannat så härlig bouquet!\nNär ungdomen hånglas i Brunssan\när minnena här ska ni se.\n\nBatong och vin, rojsigt fint,\nvi skålar med glasen i klang\nCHAMPAGNE!\nEn kväll på stan, sidu på fan\ndet är ju Spitu i sin nya BMW, cabriolet.\n\nMed musslor och vin på Hangö västra\ni vår Nyländer Yacht ’45\nMed Gusi vi havet bemästra\ndet mojnar och snart styr vi hem.\n\nBatong ...\n\nVi tar å shoppar lite potis från Hallen,\nvi kör en brekkare med potatis och sill\npipigt:Å har ni hört att Missen har skiljt sig från Nallen?\nÅ Brassen har fått en kläpp till (ÅTER)\n\nBatong och vin, rojsigt fint\nvi skålar med glasen i klang\nCHAMPAGNE!\nEn kväll på stan, sidu på fan\nDet är ju Gusi som kommer, så skoj\nSIDU MOJ’N!",
       "type": ["Vinvisa"],
       "id": "frippes-vinvisa",
       "melody": "My Bonnie Lies over the Ocean",
@@ -1650,7 +1651,7 @@
     {
       "title": "Lambo",
       "page": 149,
-      "lyrics": "Sätt nu glaset till din mun\ntjo faderittan lambo!\nOch drick ur, din fylle-fyllehund,\ntjo faderittan lambo!\nSe, hur brännvinet i glaset\nrinner ner i fylleaset!\nLambo hej! Lambo hej! Tjo faderittan lambo!Jag ur glaset druckit har,\n<i>alla:</i>Tjo faderittan lambo!\n<i>solo:</i>Ej en droppe finnes kvar,\n<i>alla:</i>Tjo faderittan lambo!\n<i>solo:</i>Som bevis jag nu vill vända\n\nglaset på dess rätta ända.\n<i>alla:</i>Lambo hej! Lambo hej!\n\nTjo faderittan lambo!\n\nJa, han kunde konsten,\nhan var en riktig fylle-fyllehund.\nLåt oss gå till nästa man\noch se vad han förmår!",
+      "lyrics": "Sätt nu glaset till din mun\ntjo faderittan lambo!\nOch drick ur, din fylle-fyllehund,\ntjo faderittan lambo!\nSe, hur brännvinet i glaset\nrinner ner i fylleaset!\nLambo hej! Lambo hej! Tjo faderittan lambo!Jag ur glaset druckit har,\nalla:Tjo faderittan lambo!\nsolo:Ej en droppe finnes kvar,\nalla:Tjo faderittan lambo!\nsolo:Som bevis jag nu vill vända\n\nglaset på dess rätta ända.\nalla:Lambo hej! Lambo hej!\n\nTjo faderittan lambo!\n\nJa, han kunde konsten,\nhan var en riktig fylle-fyllehund.\nLåt oss gå till nästa man\noch se vad han förmår!",
       "pre": "solo:",
       "type": ["Annan Dryckesvisa"],
       "id": "lambo",
@@ -1696,7 +1697,7 @@
     {
       "title": "Jag gillar",
       "page": 154,
-      "lyrics": "Det var en gång jag tänkte\n\natt punschen övergiva,\nmen det får inte ske\nså länge jag får leva.\nFör om jag en gång dör,\nså står det på min grav:\n<i>alla:</i>Här vilar en som finska punschen övergav!\n\nJag gillar,\njag gillar punschen.\nJag gillar den som punschen skapat har.\nJag gillar,\njag gillar punschen.\nJag gillar punschen och dess far.",
+      "lyrics": "Det var en gång jag tänkte\n\natt punschen övergiva,\nmen det får inte ske\nså länge jag får leva.\nFör om jag en gång dör,\nså står det på min grav:\nalla:Här vilar en som finska punschen övergav!\n\nJag gillar,\njag gillar punschen.\nJag gillar den som punschen skapat har.\nJag gillar,\njag gillar punschen.\nJag gillar punschen och dess far.",
       "pre": "solo:",
       "type": ["Punschvisa"],
       "id": "jag-gillar",
@@ -1813,7 +1814,7 @@
     {
       "title": "Punschyrsel",
       "page": 163,
-      "lyrics": "//: Punsch, punsch,\npunsch, punsch,\npunsch, punsch,\nAlla sorters ://\n<i>Da capo al fine.damer:\n</i>När supen runnit hädan\noch maten lagts därpå.\nNär kaffet står på bordet\nvad väntar vi då på?\n//: Jo punsch, jo punsch,\njo alla sorters punsch! ://\n\nJa, den föll oss i smaken\nnu ropar vi gutår.\nOch koppen står där naken\noch väntar på påtår\n//: Och punsch, och punsch,\noch ännu mera punsch! ://",
+      "lyrics": "//: Punsch, punsch,\npunsch, punsch,\npunsch, punsch,\nAlla sorters ://\n(Damer):\nNär supen runnit hädan\noch maten lagts därpå.\nNär kaffet står på bordet\nvad väntar vi då på?\n//: Jo punsch, jo punsch,\njo alla sorters punsch! ://\n\nJa, den föll oss i smaken\nnu ropar vi gutår.\nOch koppen står där naken\noch väntar på påtår\n//: Och punsch, och punsch,\noch ännu mera punsch! ://",
       "type": ["Punschvisa"],
       "id": "punschyrsel",
       "melody": "Gökvisaherrar:",
@@ -1987,7 +1988,7 @@
     {
       "title": "Eino Leinon juomalaulu",
       "page": 176,
-      "lyrics": "Monta päivää juotuaan,\npessimisti tuskissaan,\ntuumi: jo on, jukoliste,\nsaavutettu päätepiste.\nNuoranpätkä kourassaan\nhiipi nurkkaan kuolemaan.\nMutta toiset nähtyään\nyhden poissa pöydästään,\nsydämissä syvä hätä\nalkoi etsiskellä tätä.\nLöytyi veikko nuorastaan,\nvainajana suorastaan.\nMutta:\n<i>alla:\n</i>Saatuansa spriitä,\nvirkistyi hän siitä\nkohottaen lasiaan\nvirkkoi: “Veljet,\n— Asiaan!”",
+      "lyrics": "Monta päivää juotuaan,\npessimisti tuskissaan,\ntuumi: jo on, jukoliste,\nsaavutettu päätepiste.\nNuoranpätkä kourassaan\nhiipi nurkkaan kuolemaan.\nMutta toiset nähtyään\nyhden poissa pöydästään,\nsydämissä syvä hätä\nalkoi etsiskellä tätä.\nLöytyi veikko nuorastaan,\nvainajana suorastaan.\nMutta:\nalla:\nSaatuansa spriitä,\nvirkistyi hän siitä\nkohottaen lasiaan\nvirkkoi: “Veljet,\n— Asiaan!”",
       "type": ["Finsk Visa"],
       "id": "eino-leinon-juomalaulu",
       "melody": "Pieni Episodisolo:",
@@ -2167,7 +2168,7 @@
     {
       "title": "Kalmarevisan",
       "page": 188,
-      "lyrics": "//:Uti Kalmare stad\n<i>alla:</i>ja, där finns det ingen kvast ://\nförrän lördagen.\n<i>solo:</i>Hej dick\n<i>alla:</i>Hej dack\n<i>solo:</i>Jag slog i\n<i>alla:</i>och vi drack.\n<i>solo:</i>Hej dickom dickom dack\n<i>alla:</i>Hej dickom dickom dack.\nFör uti Kalmare stad\nja, där finns det ingen kvast\nförrän lördagen.\n\n//:\n<i>solo:</i>När som bonden kommer hem\n<i>alla:</i>kommer bondekvinnan ut ://\nÄr så stor i sin trut.\n\nHej dick...\n\n//:\n<i>solo:</i>Var är pengarna du fått?\n<i>alla:</i>Ja dom har jag supit upp ://\nuppå Kalmare slott.\n\nHej dick...\n\n//:\n<i>solo:</i>Jag skall mäla dig an\n<i>alla:</i>för vår kronbefallningsman ://\nOch du ska få skam.\n\nHej dick...\n\n//:\n<i>solo:</i>Kronbefallningsmannen vår\n<i>alla:</i>satt på krogen igår ://\noch var full som ett får.\n\nHej dick...\n\n//:\n<i>solo:</i>Vad ska bonden ha till mat\n<i>alla:</i>sura sillar och potat. ://\nDet blir sillsallat.\n\nHej dick...",
+      "lyrics": "//:Uti Kalmare stad\nalla:ja, där finns det ingen kvast ://\nförrän lördagen.\nsolo:Hej dick\nalla:Hej dack\nsolo:Jag slog i\nalla:och vi drack.\nsolo:Hej dickom dickom dack\nalla:Hej dickom dickom dack.\nFör uti Kalmare stad\nja, där finns det ingen kvast\nförrän lördagen.\n\n//:\nsolo:När som bonden kommer hem\nalla:kommer bondekvinnan ut ://\nÄr så stor i sin trut.\n\nHej dick...\n\n//:\nsolo:Var är pengarna du fått?\nalla:Ja dom har jag supit upp ://\nuppå Kalmare slott.\n\nHej dick...\n\n//:\nsolo:Jag skall mäla dig an\nalla:för vår kronbefallningsman ://\nOch du ska få skam.\n\nHej dick...\n\n//:\nsolo:Kronbefallningsmannen vår\nalla:satt på krogen igår ://\noch var full som ett får.\n\nHej dick...\n\n//:\nsolo:Vad ska bonden ha till mat\nalla:sura sillar och potat. ://\nDet blir sillsallat.\n\nHej dick...",
       "pre": "solo:",
       "type": ["Finsk Visa"],
       "id": "kalmarevisan",
@@ -2375,7 +2376,7 @@
     {
       "title": "The tender bar love song",
       "page": 215,
-      "lyrics": "Får du på käften utav tanten,\när alltid chefen sur och vrång?\nKänns dagen lång, helt utan fjong?\nLyssna då till min sång!\n\nÄr livet kallt och mörkt och dystert,\nsom en djupfrusen fish and chips?\nStramar din slips, surnar din Pripps?\nLyssna då till mitt tips!\n<i>alla:\n</i>Gå till baren med erfaren personal\ndär du tar en,\nbra medicin mot allt\nnär du en maltdryck i dig stjälper\nstrax det hjälper,\noch om du står rycken ta två stycken\nav hälsodrycken.\nPå egen risk kan du få ta tre,\nmen då blir du nog lite sne’.\n\nBilligt, villigt, skall jag hälla upp åtskilligt.\nBilligt, villigt, blir du beskänkt och stänkt.\n\nGå till baren...",
+      "lyrics": "Får du på käften utav tanten,\när alltid chefen sur och vrång?\nKänns dagen lång, helt utan fjong?\nLyssna då till min sång!\n\nÄr livet kallt och mörkt och dystert,\nsom en djupfrusen fish and chips?\nStramar din slips, surnar din Pripps?\nLyssna då till mitt tips!\nalla:\nGå till baren med erfaren personal\ndär du tar en,\nbra medicin mot allt\nnär du en maltdryck i dig stjälper\nstrax det hjälper,\noch om du står rycken ta två stycken\nav hälsodrycken.\nPå egen risk kan du få ta tre,\nmen då blir du nog lite sne’.\n\nBilligt, villigt, skall jag hälla upp åtskilligt.\nBilligt, villigt, blir du beskänkt och stänkt.\n\nGå till baren...",
       "type": ["Övrig Sång"],
       "id": "the-tender-bar-love-song",
       "melody": "Swaneesolo:",

@@ -44,9 +44,15 @@ export const FlexRow = styled.View`flex-direction: row;`;
 const statusBarPadding =
   Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
+export const StatusBarPadding = styled.View`
+  padding-top: ${statusBarPadding};
+  background-color: ${props => props.backgroundColor};
+  elevation: 4;
+`;
+
 export const AppContainer = styled.View`
   flex: 1;
-  padding-top: ${statusBarPadding};
+  ${'' /* padding-top: ${statusBarPadding}; */};
 `;
 
 export const Title = styled.Text`

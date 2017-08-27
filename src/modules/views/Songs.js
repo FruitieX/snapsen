@@ -57,7 +57,11 @@ const mapDispatchToProps = dispatch => ({
 class SongsView extends Component {
   onPressSong = song => {
     Keyboard.dismiss();
-    this.props.navigation.navigate('SongDetails', { song });
+    this.props.navigation.navigate('SongDetails', {
+      song,
+      primaryColor: this.props.books[song.bookUrl].primaryColor,
+      secondaryColor: this.props.books[song.bookUrl].secondaryColor,
+    });
   };
 
   renderItem = ({ item }) =>
@@ -75,6 +79,31 @@ class SongsView extends Component {
       });
       return songs;
     }, []);
+
+  filterSongs = songs => {
+    const {
+      activateSearch,
+      changeSearch,
+      searchText,
+      activateFilter,
+      clearFilters,
+      activeFilter,
+    } = this.props;
+
+    // TODO: filter by more fields than title
+    if (searchText) {
+      songs = songs.filter(song => {
+        const title = song.title.toLowerCase();
+        return title.includes(searchText.toLowerCase());
+      });
+    }
+
+    if (activeFilter) {
+      songs = songs.filter(song => song.type === activeFilter);
+    }
+
+    return songs;
+  };
 
   songKeyExtractor = song => song;
 

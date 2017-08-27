@@ -50,7 +50,12 @@ export default class SongItem extends React.PureComponent {
     return (
       <ListItem
         divider
-        leftElement={<Avatar image={bookImages[song.bookUrl]} />}
+        leftElement={
+          <Avatar
+            image={bookImages[song.bookUrl]}
+            style={{ container: { backgroundColor: 'transparent' } }}
+          />
+        }
         centerElement={{
           primaryText: song.title,
           secondaryText: `${book.title}: p. ${song.page}`,
