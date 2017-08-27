@@ -11,7 +11,7 @@ export default createReducer(
   {
     [setNote]: (state, note) => ({
       ...state,
-      [`${note.book.id}/${note.song.id}`]: note.text,
+      [note.song.key]: note.text,
     }),
   },
   initialState,

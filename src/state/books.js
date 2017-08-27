@@ -14,11 +14,14 @@ if (__DEV__) defaultBooks = [template, ...defaultBooks];
 export const addBook = createAction('Add book to library');
 export const deleteBook = createAction('Delete book from library');
 
-const importBook = book =>
+const importBook = book => {
+  book.key = book.url;
+
   book.songs.forEach(song => {
     song.bookUrl = book.url;
     song.key = `${book.url}/${song.id}`;
   });
+};
 
 defaultBooks.forEach(importBook);
 

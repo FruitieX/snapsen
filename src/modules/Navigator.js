@@ -13,6 +13,8 @@ import { Toolbar, Drawer, Avatar } from 'react-native-material-ui';
 // ## View imports ##
 import SongsView from './views/Songs';
 import SongDetailsView from './views/SongDetails';
+import BooksView from './views/Books';
+import BookDetailsView from './views/BookDetails';
 import SettingsView from './views/Settings';
 
 const DrawerNavigatorConfig = {
@@ -44,8 +46,8 @@ const DrawerNavigatorConfig = {
           {
             icon: 'book',
             value: 'Songbooks',
-            active: props.activeItemKey === 'SongBooksNavigator',
-            onPress: () => props.navigation.navigate('SongBooksNavigator'),
+            active: props.activeItemKey === 'BooksNavigator',
+            onPress: () => props.navigation.navigate('BooksNavigator'),
           },
         ]}
       />
@@ -65,7 +67,7 @@ const DrawerNavigatorConfig = {
 class Header extends React.Component {
   canNavigateBack = () => {
     if (
-      ['Songs', 'SongBooks', 'Settings'].includes(
+      ['Songs', 'Books', 'Settings'].includes(
         this.props.currentNavigation.state.routeName,
       )
     ) {
@@ -119,6 +121,16 @@ const SongsNavigator = StackNavigator(
   },
   StackNavigatorConfig,
 );
+const BooksNavigator = StackNavigator(
+  {
+    Books: { screen: BooksView },
+    BookDetails: {
+      screen: BookDetailsView,
+      navigationOptions: { title: 'Info' },
+    },
+  },
+  StackNavigatorConfig,
+);
 const SettingsNavigator = StackNavigator(
   {
     Settings: { screen: SettingsView },
@@ -129,6 +141,7 @@ const SettingsNavigator = StackNavigator(
 export const DrawerView = DrawerNavigator(
   {
     SongsNavigator: { screen: SongsNavigator },
+    BooksNavigator: { screen: BooksNavigator },
     SettingsNavigator: { screen: SettingsNavigator },
   },
   DrawerNavigatorConfig,

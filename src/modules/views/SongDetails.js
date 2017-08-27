@@ -8,7 +8,9 @@ import {
   Linking,
   KeyboardAvoidingView,
 } from 'react-native';
-import { Card, ListItem, Avatar } from 'react-native-material-ui';
+import { Card } from 'react-native-material-ui';
+
+import DetailField from '../../components/DetailField';
 
 import {
   Lyrics,
@@ -31,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     song,
     book,
-    note: state.notes[`${book.id}/${song.id}`],
+    note: state.notes[song.key],
   };
 };
 
@@ -41,29 +43,6 @@ const mapDispatchToProps = dispatch => ({
 
 // Don't care about propTypes in modules
 /* eslint-disable react/prop-types */
-
-class DetailField extends React.Component {
-  openURL = () => Linking.openURL(this.props.url);
-
-  render = () => {
-    const { icon, title, value, url, ...rest } = this.props;
-
-    if (!value) return null;
-
-    return (
-      <ListItem
-        leftElement={<Avatar icon={icon} />}
-        centerElement={{
-          primaryText: String(title),
-          secondaryText: String(value),
-        }}
-        numberOfLines={'dynamic'}
-        onPress={url && this.openURL}
-        {...rest}
-      />
-    );
-  };
-}
 
 class SongDetails extends React.Component {
   static navigationOptions = {
