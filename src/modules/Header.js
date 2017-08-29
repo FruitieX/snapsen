@@ -8,13 +8,13 @@ import {
   clearFilters,
   searchChange,
   activateFilter,
-} from '../state/songsView';
+} from '../state/filters';
 import { StatusBarPadding } from '../components/styled';
 
 const mapStateToProps = state => ({
   books: state.books,
-  searchText: state.songsView.searchText,
-  activeFilter: state.songsView.activeFilter,
+  searchText: state.filters.searchText,
+  activeFilter: state.filters.activeFilter,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -83,6 +83,13 @@ export class Header extends React.Component {
                 ? { color: secondaryColor }
                 : undefined,
           }}
+          rightElement={{
+            menu: {
+              icon: 'sort',
+              labels: ['Sort by songbook', 'Sort by name', 'Sort by type'],
+            },
+          }}
+          onRightElementPress={item => console.log(item)}
         />
       </View>
     );

@@ -1,5 +1,4 @@
 import React from 'react';
-import colors from '../utils/colors';
 
 import { Image, View, Text } from 'react-native';
 
@@ -18,7 +17,7 @@ export default class BookItem extends React.PureComponent {
         divider
         leftElement={
           <Avatar
-            image={bookImages[book.url]}
+            image={bookImages[book.id]}
             style={{ container: { backgroundColor: 'transparent' } }}
           />
         }

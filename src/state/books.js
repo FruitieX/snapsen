@@ -15,11 +15,11 @@ export const addBook = createAction('Add book to library');
 export const deleteBook = createAction('Delete book from library');
 
 const importBook = book => {
-  book.key = book.url;
+  book.key = book.id;
 
   book.songs.forEach(song => {
-    song.bookUrl = book.url;
-    song.key = `${book.url}/${song.id}`;
+    song.bookId = book.id;
+    song.key = `${book.key}/${song.id}`;
   });
 };
 
@@ -28,20 +28,20 @@ defaultBooks.forEach(importBook);
 export const bookImages = {};
 defaultBooks.forEach(
   book =>
-    (bookImages[book.url] = (
+    (bookImages[book.key] = (
       <Image source={book.image} style={{ height: 40, width: 40 }} />
     )),
 );
 
 const initialState = {};
-defaultBooks.forEach(book => (initialState[book.url] = book));
+defaultBooks.forEach(book => (initialState[book.key] = book));
 
 export default createReducer(
   {
-    [addBook]: (state, book) => ({ ...state, [book.url]: book }),
+    [addBook]: (state, book) => ({ ...state, [book.key]: book }),
     [deleteBook]: (state, book) => {
       const newState = { ...state };
-      delete newState[book.url];
+      delete newState[book.id];
       return newState;
     },
   },

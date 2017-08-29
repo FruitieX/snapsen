@@ -84,3 +84,33 @@ export const NoteField = styled.TextInput.attrs({
   margin-horizontal: 16px;
   textAlignVertical: top;
 `;
+
+export const BookFilter = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 16px;
+  opacity: ${props => (props.active ? 1 : 0.2)};
+`;
+
+export const BookFilterTitle = styled.Text`
+  text-align: center;
+  padding: 10px;
+`;
+
+export const TypeBadge = styled.View`
+  height: 30px;
+  border-radius: 15px;
+  paddingVertical: 2px;
+  paddingHorizontal: 10px;
+  margin: 10px;
+  background-color: ${props => props.backgroundColor || '#aaa'};
+  opacity: ${props => (props.active ? 1 : 0.2)};
+`;
+
+export const Type = styled.Text`
+  font-size: 18px;
+  color: white;
+`;
+
+export const FilterContainer = styled.View`paddingVertical: 4px;`;

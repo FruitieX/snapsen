@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 // ## Reducer Imports ##
 import navigator from '../state/navigator';
-import songsView from '../state/songsView';
+import filters from '../state/filters';
 import books from '../state/books';
 import notes from '../state/notes';
 
@@ -13,7 +13,7 @@ export default combineReducers({
   navigatorState: navigator,
 
   // Songs view state
-  songsView,
+  filters,
 
   // Stored books
   books,

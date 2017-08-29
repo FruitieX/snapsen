@@ -6,7 +6,6 @@ import { FlatList, Keyboard, View } from 'react-native';
 import { NavigationActions } from 'react-navigation';
 
 import { connect } from 'react-redux';
-import colors from '../../utils/colors';
 import BookItem from '../../components/BookItem';
 
 // Don't care about propTypes in modules

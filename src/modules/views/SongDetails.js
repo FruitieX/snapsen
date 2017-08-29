@@ -21,14 +21,13 @@ import {
   NoteField,
 } from '../../components/styled';
 import SongItem from '../../components/SongItem';
-import colors from '../../utils/colors';
 import { setNote } from '../../state/notes';
 
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state, ownProps) => {
   const song = ownProps.navigation.state.params.song;
-  const book = state.books[song.bookUrl];
+  const book = state.books[song.bookId];
 
   return {
     song,
@@ -62,9 +61,6 @@ class SongDetails extends React.Component {
   render() {
     const { song, book } = this.props;
 
-    const badgeColor = colors[song.type] || colors['default'];
-
-    //const statusBarColor = color(book.primaryColor).darken(0.2).hexString();
     return (
       <KeyboardAvoidingView keyboardVerticalOffset={80} behavior="padding">
         <ScrollView>

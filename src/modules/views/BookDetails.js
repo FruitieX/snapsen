@@ -20,7 +20,6 @@ import {
   NoteField,
 } from '../../components/styled';
 import BookItem from '../../components/BookItem';
-import colors from '../../utils/colors';
 
 import { connect } from 'react-redux';
 

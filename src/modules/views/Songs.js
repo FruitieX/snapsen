@@ -1,29 +1,15 @@
 import React, { Component } from 'react';
-import forIn from 'lodash/forIn';
 
-import { FlatList, Keyboard, KeyboardAvoidingView, View } from 'react-native';
 import {
-  Container,
-  Content,
-  Icon,
-  Card,
-  CardItem,
-  Button,
-  Body,
-  Thumbnail,
-  Badge,
-  Left,
-  Right,
-  Item,
-  Input,
-  ListItem,
-  List,
+  FlatList,
+  Keyboard,
+  KeyboardAvoidingView,
+  View,
   Text,
-  Header,
-  Title,
-} from 'native-base';
+} from 'react-native';
 
 import { NavigationActions } from 'react-navigation';
+import { Card } from 'react-native-material-ui';
 
 import { connect } from 'react-redux';
 import {
@@ -31,9 +17,10 @@ import {
   clearFilters,
   searchChange,
   activateFilter,
-} from '../../state/songsView';
+} from '../../state/filters';
 
-import colors from '../../utils/colors';
+import Filters from '../Filters';
+
 import SongItem from '../../components/SongItem';
 
 // Don't care about propTypes in modules
@@ -41,8 +28,9 @@ import SongItem from '../../components/SongItem';
 
 const mapStateToProps = state => ({
   books: state.books,
-  searchText: state.songsView.searchText,
-  activeFilter: state.songsView.activeFilter,
+  searchText: state.filters.searchText,
+  typeFilter: state.filters.type,
+  bookFilter: state.filters.book,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,14 +47,14 @@ class SongsView extends Component {
     Keyboard.dismiss();
     this.props.navigation.navigate('SongDetails', {
       song,
-      primaryColor: this.props.books[song.bookUrl].primaryColor,
-      secondaryColor: this.props.books[song.bookUrl].secondaryColor,
+      primaryColor: this.props.books[song.bookId].primaryColor,
+      secondaryColor: this.props.books[song.bookId].secondaryColor,
     });
   };
 
   renderItem = ({ item }) =>
     <SongItem
-      book={this.props.books[item.bookUrl]}
+      book={this.props.books[item.bookId]}
       song={item}
       onPress={this.onPressSong}
     />;
@@ -87,7 +75,8 @@ class SongsView extends Component {
       searchText,
       activateFilter,
       clearFilters,
-      activeFilter,
+      typeFilter,
+      bookFilter,
     } = this.props;
 
     // TODO: filter by more fields than title
@@ -98,8 +87,12 @@ class SongsView extends Component {
       });
     }
 
-    if (activeFilter) {
-      songs = songs.filter(song => song.type === activeFilter);
+    if (bookFilter) {
+      songs = songs.filter(song => song.bookId === bookFilter);
+    }
+
+    if (typeFilter) {
+      songs = songs.filter(song => song.type.includes(typeFilter));
     }
 
     return songs;
@@ -107,9 +100,15 @@ class SongsView extends Component {
 
   songKeyExtractor = song => song;
 
+  renderFilters = () => (this.props.searchText === null ? null : <Filters />);
+
   renderSongList = songs =>
     <KeyboardAvoidingView keyboardVerticalOffset={80} behavior="padding">
-      <FlatList data={songs} renderItem={this.renderItem} />
+      <FlatList
+        data={songs}
+        renderItem={this.renderItem}
+        ListHeaderComponent={this.renderFilters}
+      />
     </KeyboardAvoidingView>;
 
   render = () =>

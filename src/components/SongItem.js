@@ -1,7 +1,6 @@
 import React from 'react';
-import colors from '../utils/colors';
 
-import { Image, View, Text } from 'react-native';
+import { Image, View, Text, StyleSheet } from 'react-native';
 
 import { ListItem, Avatar } from 'react-native-material-ui';
 
@@ -29,6 +28,12 @@ import {
 } from 'native-base';
 */
 
+const styles = StyleSheet.create({
+  avatarContainer: {
+    backgroundColor: 'transparent',
+  },
+});
+
 export default class SongItem extends React.PureComponent {
   handlePress = () => this.props.onPress(this.props.song);
 
@@ -45,15 +50,14 @@ export default class SongItem extends React.PureComponent {
 
   render = () => {
     const { song, book } = this.props;
-    const badgeColor = colors[song.type] || colors['default'];
 
     return (
       <ListItem
         divider
         leftElement={
           <Avatar
-            image={bookImages[song.bookUrl]}
-            style={{ container: { backgroundColor: 'transparent' } }}
+            image={bookImages[song.bookId]}
+            style={{ container: styles.avatarContainer }}
           />
         }
         centerElement={{
