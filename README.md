@@ -5,7 +5,7 @@ Snapsen
 
 Snapsen is a digital songbook app which allows you to view, search and filter songs from various songbooks.
 
-At the moment Snapsen comes with Teknologföreningens Nya Sångbook and Otaniemi Lauluwiki, with more to come. Contact me if you wish to add your songbook to the app!
+At the moment Snapsen comes with Teknologföreningens Nya Sångbok and Otaniemi Lauluwiki, with more to come. Contact me if you wish to add your songbook to the app!
 
 Android version available in the Play store: https://play.google.com/store/apps/details?id=com.snapsen
 
