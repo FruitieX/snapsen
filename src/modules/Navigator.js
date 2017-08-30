@@ -6,6 +6,7 @@ import {
   NavigationActions,
   addNavigationHelpers,
 } from 'react-navigation';
+import { clearSearch } from '../state/filters';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
 
@@ -78,7 +79,14 @@ If you have moved the 'Drawer' route, you need to:
   * Update handleBackButton() so it knows
     where to find your DrawerNavigator`;
 
-export const handleBackButton = ({ navigatorState }, dispatch) => {
+export const handleBackButton = (state, dispatch) => {
+  const { navigatorState, filters } = state;
+
+  if (filters.searchText !== null) {
+    dispatch(clearSearch());
+    return true;
+  }
+
   const drawerNavigator = navigatorState.routes.find(
     route => route.routeName === 'Drawer',
   );

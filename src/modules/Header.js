@@ -28,6 +28,36 @@ const mapDispatchToProps = dispatch => ({
     dispatch(NavigationActions.navigate(view, options)),
 });
 
+class CustomToolbar extends Toolbar {
+  // We have to override all usages of this.backButtonListener so it doesn't
+  // mess with our navigation back button handler
+  onSearchOpenRequested = () => {
+    this.setState({
+      isSearchActive: true,
+      searchValue: '',
+      // zIndex: 'toDefaultNext',
+    });
+
+    this.animateSearchBackground(() => {
+      // default scale set up back to "hidden" value
+      this.state.defaultScaleValue.setValue(0.01);
+      this.setState({ order: 'searchFirst' });
+      // on android it's typical that back button closes search input on toolbar
+      //this.backButtonListener = getBackButtonListener(this.onSearchCloseRequested, true);
+    });
+  };
+
+  onSearchClosed = () => {
+    const { searchable } = this.props;
+
+    //this.backButtonListener.remove();
+
+    if (searchable && searchable.onSearchClosed) {
+      searchable.onSearchClosed();
+    }
+  };
+}
+
 export class Header extends React.Component {
   canNavigateBack = () =>
     !['Songs', 'Books', 'Settings'].includes(
@@ -62,7 +92,7 @@ export class Header extends React.Component {
       <View>
         <StatusBarPadding backgroundColor={backgroundColor} />
         {/* <StatusBar backgroundColor={backgroundColor} /> */}
-        <Toolbar
+        <CustomToolbar
           onLeftElementPress={this.headerOnLeftPress}
           leftElement={this.headerLeftElement()}
           centerElement={this.getTitle()}
