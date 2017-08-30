@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import forIn from 'lodash/forIn';
 
-import { FlatList, Keyboard, View } from 'react-native';
+import { FlatList, Keyboard, View, ToastAndroid } from 'react-native';
+import { ActionButton } from 'react-native-material-ui';
+import { ViewContainer } from '../../components/styled';
 
 import { NavigationActions } from 'react-navigation';
 
@@ -21,6 +22,12 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class BooksView extends Component {
+  addBook = () =>
+    ToastAndroid.show(
+      'Songbook management is coming in a future release!\n\nIn the meantime, contact me at fruitiex@gmail.com to add more books or submit corrections.',
+      ToastAndroid.LONG,
+    );
+
   onPressBook = book => {
     Keyboard.dismiss();
     this.props.navigation.navigate('BookDetails', {
@@ -34,7 +41,10 @@ class BooksView extends Component {
     <BookItem book={item} onPress={this.onPressBook} />;
 
   renderBookList = books =>
-    <FlatList data={books} renderItem={this.renderItem} />;
+    <ViewContainer>
+      <FlatList data={books} renderItem={this.renderItem} />
+      <ActionButton icon="add" onPress={this.addBook} />
+    </ViewContainer>;
 
   render = () =>
     this.renderBookList(

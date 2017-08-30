@@ -33,7 +33,7 @@ const StackNavigatorConfig = {
 // https://github.com/react-community/react-navigation/issues/843
 const SongsNavigator = StackNavigator(
   {
-    Songs: { screen: SongsView },
+    Songs: { screen: SongsView, navigationOptions: { title: 'Snapsen' } },
     SongDetails: {
       screen: SongDetailsView,
       navigationOptions: { title: 'Song info' },
@@ -43,7 +43,7 @@ const SongsNavigator = StackNavigator(
 );
 const BooksNavigator = StackNavigator(
   {
-    Books: { screen: BooksView },
+    Books: { screen: BooksView, navigationOptions: { title: 'Songbooks' } },
     BookDetails: {
       screen: BookDetailsView,
       navigationOptions: { title: 'Book info' },

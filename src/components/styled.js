@@ -46,6 +46,8 @@ export const AppContainer = styled.View`
   ${'' /* padding-top: ${statusBarPadding}; */};
 `;
 
+export const ViewContainer = styled.View`flex: 1;`;
+
 export const Title = styled.Text`
   font-size: 20px;
   font-weight: bold;
