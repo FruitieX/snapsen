@@ -2,11 +2,13 @@
   "expo": {
     "name": "Snapsen",
     "icon": "./assets/snapsen.png",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "sdkVersion": "19.0.0",
     "slug": "snapsen",
     "android": {
-      "package": "com.snapsen"
+      "package": "com.snapsen",
+      "versionCode": 10001,
+      "permissions": []
     }
   }
 }
