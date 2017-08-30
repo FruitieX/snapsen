@@ -75,6 +75,32 @@ const mapDispatchToProps = dispatch => ({
 });
 
 class Filters extends Component {
+  componentWillReceiveProps = nextProps => {
+    // Center song type filter when selected
+    if (nextProps.typeFilter !== this.props.typeFilter) {
+      const index = nextProps.types.findIndex(
+        type => type.name === nextProps.typeFilter,
+      );
+
+      if (index >= 0) {
+        this.typeList.scrollToIndex({
+          index,
+          animated: true,
+          viewPosition: 0.5,
+        });
+      }
+    }
+
+    // Scroll to beginning of song type list if book filter changes
+    if (nextProps.bookFilter !== this.props.bookFilter) {
+      this.typeList.scrollToIndex({
+        index: 0,
+        animated: true,
+        viewPosition: 0.5,
+      });
+    }
+  };
+
   renderSongbook = ({ item }) =>
     <TouchableOpacity onPress={() => this.props.activateBookFilter(item)}>
       <BookFilter
@@ -102,6 +128,8 @@ class Filters extends Component {
       </TypeBadge>
     </TouchableOpacity>;
 
+  saveRef = ref => (this.typeList = ref);
+
   render = () =>
     <FilterContainer>
       <Card>
@@ -122,6 +150,7 @@ class Filters extends Component {
           data={this.props.types}
           renderItem={this.renderType}
           keyExtractor={item => item.name}
+          ref={this.saveRef}
           horizontal
         />
       </Card>

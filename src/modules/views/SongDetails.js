@@ -56,6 +56,8 @@ class SongDetails extends React.Component {
     */
   };
 
+  state = { noteHeight: 0 };
+
   openLink = link => Linking.openURL(link);
 
   render() {
@@ -134,6 +136,12 @@ class SongDetails extends React.Component {
                   book,
                   text,
                 })}
+              onContentSizeChange={event => {
+                this.setState({
+                  noteHeight: event.nativeEvent.contentSize.height,
+                });
+              }}
+              style={{ height: Math.max(120, this.state.noteHeight) }}
               value={this.props.note}
             />
           </Card>

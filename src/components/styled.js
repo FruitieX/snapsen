@@ -1,5 +1,14 @@
 import { Platform, StatusBar } from 'react-native';
 import styled from 'styled-components/native';
+import SnapsenIcon from '../../assets/snapsen.png';
+import Color from 'color';
+
+export const SnapsenAvatar = styled.Image.attrs({
+  source: SnapsenIcon,
+})`
+  height: 56px;
+  width: 56px;
+`;
 
 export const Centered = styled.View`
   flex: 1;
@@ -23,7 +32,7 @@ export const Button = styled.TouchableOpacity`
 
 export const FlexRow = styled.View`flex-direction: row;`;
 
-const statusBarPadding =
+export const statusBarPadding =
   Platform.OS === 'android' ? StatusBar.currentHeight : 0;
 
 export const StatusBarPadding = styled.View`
@@ -45,7 +54,6 @@ export const Title = styled.Text`
 export const Lyrics = styled.Text`
   line-height: 30px;
   font-size: 18px;
-  font-weight: bold;
 `;
 
 export const PreLyrics = styled.Text`
@@ -62,9 +70,11 @@ export const Padding = styled.View`padding: 16px;`;
 export const NoteField = styled.TextInput.attrs({
   multiline: true,
 })`
-  height: 200px;
-  margin-horizontal: 16px;
+  margin-horizontal: 8px;
   textAlignVertical: top;
+  padding-horizontal: 10px;
+  padding-bottom: 20px;
+  font-size: 20px;
 `;
 
 export const BookFilter = styled.View`
@@ -86,8 +96,10 @@ export const TypeBadge = styled.View`
   paddingVertical: 2px;
   paddingHorizontal: 10px;
   margin: 10px;
-  background-color: ${props => props.backgroundColor || '#aaa'};
-  opacity: ${props => (props.active ? 1 : 0.2)};
+  background-color: ${props =>
+    Color(props.backgroundColor || '#aaa')
+      .fade(props.active ? 0 : 0.8)
+      .string()};
 `;
 
 export const Type = styled.Text`

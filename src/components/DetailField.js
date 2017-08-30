@@ -19,6 +19,7 @@ export default class DetailField extends React.Component {
         }}
         numberOfLines={'dynamic'}
         onPress={url && this.openURL}
+        onRightElementPress={url && this.openURL}
         {...rest}
       />
     );

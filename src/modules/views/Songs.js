@@ -31,6 +31,7 @@ const mapStateToProps = state => ({
   searchText: state.filters.searchText,
   typeFilter: state.filters.type,
   bookFilter: state.filters.book,
+  sortBy: state.filters.sortBy,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -41,6 +42,46 @@ const mapDispatchToProps = dispatch => ({
   navigate: (view, options) =>
     dispatch(NavigationActions.navigate(view, options)),
 });
+
+const sortByTitle = (a, b) => {
+  if (a.title < b.title) {
+    return -1;
+  }
+  if (a.title > b.title) {
+    return 1;
+  }
+
+  return 0;
+};
+
+const sortByBook = (a, b) => {
+  if (a.bookTitle < b.bookTitle) {
+    return -1;
+  }
+  if (a.bookTitle > b.bookTitle) {
+    return 1;
+  }
+
+  return sortByTitle(a, b);
+};
+
+const sortByType = (a, b) => {
+  const aType = a.type.join(', ');
+  const bType = b.type.join(', ');
+
+  if (aType < bType) {
+    return -1;
+  }
+  if (aType > bType) {
+    return 1;
+  }
+
+  return sortByTitle(a, b);
+};
+
+const sortByPage = (a, b) => {
+  return a.page - b.page;
+};
 
 class SongsView extends Component {
   onPressSong = song => {
@@ -98,112 +139,48 @@ class SongsView extends Component {
     return songs;
   };
 
+  sortSongs = songs => {
+    const { sortBy } = this.props;
+
+    if (sortBy === 'book') {
+      return songs.sort(sortByBook);
+    } else if (sortBy === 'title') {
+      return songs.sort(sortByTitle);
+    } else if (sortBy === 'page') {
+      return songs.sort(sortByPage);
+    } else if (sortBy === 'type') {
+      return songs.sort(sortByType);
+    }
+
+    return songs;
+  };
+
   songKeyExtractor = song => song;
 
-  renderFilters = () => (this.props.searchText === null ? null : <Filters />);
+  getItemLayout = (data, index) => ({
+    length: 88,
+    offset: 88 * index,
+    index,
+  });
 
   renderSongList = songs =>
     <KeyboardAvoidingView keyboardVerticalOffset={80} behavior="padding">
       <FlatList
         data={songs}
         renderItem={this.renderItem}
-        ListHeaderComponent={this.renderFilters}
+        ListHeaderComponent={Filters}
+        getItemLayout={this.getItemLayout}
+        keyboardShouldPersistTaps="always"
+        keyboardDismissMode="on-drag"
       />
     </KeyboardAvoidingView>;
 
   render = () =>
     this.renderSongList(
-      this.filterSongs(this.getSongsFromBooks(this.props.books)),
+      this.sortSongs(
+        this.filterSongs(this.getSongsFromBooks(this.props.books)),
+      ),
     );
-  /*
-  render = () => {
-    const {
-      activateSearch,
-      changeSearch,
-      searchText,
-      activateFilter,
-      clearFilters,
-      activeFilter,
-    } = this.props;
-
-    const { books } = this.props;
-
-    let songs = this.getSongsFromBooks(books);
-
-    if (searchText) {
-      const filter = searchText.toLowerCase();
-      songs = songs.filter(song => {
-        const title = song.title.toLowerCase();
-        return title.indexOf(filter) !== -1;
-      });
-    }
-
-    if (activeFilter) {
-      songs = songs.filter(song => song.type === activeFilter);
-    }
-
-    const types = {};
-
-    songs.forEach(song => (types[song.type] = true));
-
-    // daaaaamn react native is sloooooow with long lists, especially in debug mode
-    if (__DEV__) {
-      songs = songs.slice(0, 20);
-    }
-
-    const placeholderSearchText = activeFilter
-      ? `Sök inom "${activeFilter}"`
-      : 'Sök sånger';
-
-    const body =
-      searchText === '' && !activeFilter
-        ? <Card>
-            <CardItem>
-              <Body>
-                <Text>Sångtyper:</Text>
-                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                  {Object.keys(types).map((type, index) => {
-                    const color = colors[type] || colors['default'];
-
-                    return (
-                      <Button
-                        style={{ margin: 4, backgroundColor: color }}
-                        rounded
-                        key={index}
-                        onPress={() => activateFilter(type)}
-                      >
-                        <Text>
-                          {type}
-                        </Text>
-                      </Button>
-                    );
-                  })}
-                </View>
-              </Body>
-            </CardItem>
-          </Card>
-        : null;
-    // : <FlatList data={songs} renderItem={this.renderItem} />;
-
-    const color = colors[activeFilter] || colors['default'];
-    const displayFilter = activeFilter
-      ? <Badge primary style={{ margin: 8, backgroundColor: color }}>
-          <Text>
-            {activeFilter}
-          </Text>
-        </Badge>
-      : null;
-
-    return (
-      <Container>
-        { {displayFilter}}
-        <Content keyboardShouldPersistTaps="always">
-          {this.renderSongList()}
-        </Content>
-      </Container>
-    );
-  };
-  */
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SongsView);

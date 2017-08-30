@@ -1,5 +1,7 @@
 import React from 'react';
+import { Image } from 'react-native';
 import { Drawer, Avatar, COLOR } from 'react-native-material-ui';
+import { statusBarPadding, SnapsenAvatar } from '../components/styled';
 
 export default class SnapsenDrawer extends React.Component {
   render() {
@@ -8,21 +10,24 @@ export default class SnapsenDrawer extends React.Component {
         <Drawer.Header
           style={{
             contentContainer: {
+              paddingTop: statusBarPadding,
               backgroundColor: COLOR.brown300,
             },
           }}
         >
-          {/* <Drawer.Header.Account
-          avatar={<Avatar text={'A'} />}
-          footer={{
-            dense: true,
-            centerElement: {
-              primaryText: 'Reservio',
-              secondaryText: 'business@email.com',
-            },
-            rightElement: 'arrow-drop-down',
-          }}
-        /> */}
+          <Drawer.Header.Account
+            avatar={<Avatar image={<SnapsenAvatar />} />}
+            footer={{
+              centerElement: {
+                primaryText: 'Snapsen',
+              },
+            }}
+            style={{
+              container: {
+                color: 'white',
+              },
+            }}
+          />
         </Drawer.Header>
         <Drawer.Section
           divider
@@ -38,17 +43,6 @@ export default class SnapsenDrawer extends React.Component {
               value: 'Songbooks',
               active: this.props.activeItemKey === 'BooksNavigator',
               onPress: () => this.props.navigation.navigate('BooksNavigator'),
-            },
-          ]}
-        />
-        <Drawer.Section
-          items={[
-            {
-              icon: 'settings',
-              value: 'Settings',
-              active: this.props.activeItemKey === 'SettingsNavigator',
-              onPress: () =>
-                this.props.navigation.navigate('SettingsNavigator'),
             },
           ]}
         />

@@ -17,7 +17,6 @@ import SongsView from './views/Songs';
 import SongDetailsView from './views/SongDetails';
 import BooksView from './views/Books';
 import BookDetailsView from './views/BookDetails';
-import SettingsView from './views/Settings';
 
 const DrawerNavigatorConfig = {
   drawerWidth: 300,
@@ -37,7 +36,7 @@ const SongsNavigator = StackNavigator(
     Songs: { screen: SongsView },
     SongDetails: {
       screen: SongDetailsView,
-      navigationOptions: { title: 'Info' },
+      navigationOptions: { title: 'Song info' },
     },
   },
   StackNavigatorConfig,
@@ -47,14 +46,8 @@ const BooksNavigator = StackNavigator(
     Books: { screen: BooksView },
     BookDetails: {
       screen: BookDetailsView,
-      navigationOptions: { title: 'Info' },
+      navigationOptions: { title: 'Book info' },
     },
-  },
-  StackNavigatorConfig,
-);
-const SettingsNavigator = StackNavigator(
-  {
-    Settings: { screen: SettingsView },
   },
   StackNavigatorConfig,
 );
@@ -63,7 +56,6 @@ export const DrawerView = DrawerNavigator(
   {
     SongsNavigator: { screen: SongsNavigator },
     BooksNavigator: { screen: BooksNavigator },
-    SettingsNavigator: { screen: SettingsNavigator },
   },
   DrawerNavigatorConfig,
 );

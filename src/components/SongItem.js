@@ -61,9 +61,9 @@ export default class SongItem extends React.PureComponent {
           />
         }
         centerElement={{
-          primaryText: song.title,
+          primaryText: song.title || '<missing title>',
           secondaryText: `${book.title} (p. ${song.page})`,
-          tertiaryText: song.type.join(', '),
+          tertiaryText: song.type.join(', ') || '<missing type>',
         }}
         onPress={this.props.onPress && this.handlePress}
       />

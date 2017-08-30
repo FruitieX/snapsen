@@ -5,9 +5,7 @@ const persistConfig = {
   storage: AsyncStorage,
 
   // blacklisted reducers, useful when debugging to recover from broken state
-  blacklist: [
-    // 'navigatorState',
-  ],
+  blacklist: ['navigatorState', 'books', 'filters'],
 };
 
 export default (store, callback) =>

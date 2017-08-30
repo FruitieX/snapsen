@@ -19,6 +19,7 @@ const importBook = book => {
 
   book.songs.forEach(song => {
     song.bookId = book.id;
+    song.bookTitle = book.title;
     song.key = `${book.key}/${song.id}`;
   });
 };

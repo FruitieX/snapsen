@@ -5,7 +5,8 @@ import { Toolbar, COLOR } from 'react-native-material-ui';
 import { connect } from 'react-redux';
 import {
   activateSearch,
-  clearFilters,
+  clearSearch,
+  changeSortBy,
   searchChange,
   activateFilter,
 } from '../state/filters';
@@ -21,7 +22,8 @@ const mapDispatchToProps = dispatch => ({
   activateSearch: () => dispatch(activateSearch()),
   changeSearch: text => dispatch(searchChange(text)),
   activateFilter: type => dispatch(activateFilter(type)),
-  clearFilters: () => dispatch(clearFilters()),
+  changeSortBy: sortBy => dispatch(changeSortBy(sortBy)),
+  clearSearch: () => dispatch(clearSearch()),
   navigate: (view, options) =>
     dispatch(NavigationActions.navigate(view, options)),
 });
@@ -71,7 +73,7 @@ export class Header extends React.Component {
                   autoFocus: true,
                   placeholder: 'Search',
                   onSearchPressed: this.props.activateSearch,
-                  onSearchClosed: this.props.clearFilters,
+                  onSearchClosed: this.props.clearSearch,
                   onChangeText: this.props.changeSearch,
                 }
               : undefined
@@ -83,13 +85,36 @@ export class Header extends React.Component {
                 ? { color: secondaryColor }
                 : undefined,
           }}
-          rightElement={{
-            menu: {
-              icon: 'sort',
-              labels: ['Sort by songbook', 'Sort by name', 'Sort by type'],
-            },
+          rightElement={
+            this.isSearchable()
+              ? {
+                  menu: {
+                    icon: 'sort',
+                    labels: [
+                      'Sort by title',
+                      'Sort by type',
+                      'Sort by page',
+                      'Sort by songbook',
+                    ],
+                  },
+                }
+              : undefined
+          }
+          onRightElementPress={item => {
+            let sortBy;
+
+            if (item.index === 0) {
+              sortBy = 'title';
+            } else if (item.index === 1) {
+              sortBy = 'type';
+            } else if (item.index === 2) {
+              sortBy = 'page';
+            } else if (item.index === 3) {
+              sortBy = 'book';
+            }
+
+            this.props.changeSortBy(sortBy || 'title');
           }}
-          onRightElementPress={item => console.log(item)}
         />
       </View>
     );
